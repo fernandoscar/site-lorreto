@@ -157,24 +157,27 @@ Todo o CSS e JavaScript estão embutidos no `index.html` para facilitar a entreg
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
-
-- **HTML5** — estrutura semântica
-- **CSS3** — variáveis CSS, Grid, Flexbox, animações, `clamp()` para tipografia responsiva
-- **JavaScript vanilla** — painel de acessibilidade, troca de idioma, validação de formulário
-- **Google Fonts** — Josefin Sans + Smooch
-- **SVG inline** — logo e ícones sem dependências externas
+## 🛠️ 🛠️ Tecnologias Utilizadas
+ HTML5 — estrutura semântica
+ CSS3 — variáveis CSS, Grid, Flexbox, animações, ⁠clamp()⁠ para tipografia responsiva
+ JavaScript vanilla — painel de acessibilidade, troca de idioma, validação de formulário
+ Google Fonts — Josefin Sans + Smooch
+ SVG inline — logo e ícones sem dependências externas
+ AOS (Animate On Scroll) — biblioteca para animações de rolagem
+ SweetAlert2 — biblioteca para modais de alerta customizados
 
 ---
 
 ## 📚 Referências
+ MDN Web Docs — HTML Semântico
+ WCAG 2.1 — Web Content Accessibility Guidelines
+ eMAG — Modelo de Acessibilidade em Governo Eletrônico
+ W3C Validator
+ WAVE — Web Accessibility Evaluation Tool
+ Google Search Central — Como o Google interpreta HTML
+ AOS (Animate On Scroll) Documentation
+ SweetAlert2 Documentation
 
-- [MDN Web Docs — HTML Semântico](https://developer.mozilla.org/pt-BR/docs/Glossary/Semantics)
-- [WCAG 2.1 — Web Content Accessibility Guidelines](https://www.w3.org/TR/WCAG21/)
-- [eMAG — Modelo de Acessibilidade em Governo Eletrônico](https://emag.governoeletronico.gov.br/)
-- [W3C Validator](https://validator.w3.org/)
-- [WAVE — Web Accessibility Evaluation Tool](https://wave.webaim.org/)
-- [Google Search Central — Como o Google interpreta HTML](https://developers.google.com/search/docs/fundamentals/seo-starter-guide)
 
 ---
 
