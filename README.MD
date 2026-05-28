@@ -157,7 +157,38 @@ Todo o CSS e JavaScript estão embutidos no `index.html` para facilitar a entreg
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## 🧪 Testes Realizados
+
+### Testes no Navegador (Desktop)
+Testado no navegador **Brave** em sistema **Linux (Ubuntu)** durante todo o desenvolvimento, verificando:
+
+- Renderização correta de todas as seções (Hero, Serviços, Sobre, Pet Friendly, Eventos, Agendamentos, Galeria, Depoimentos)
+- Funcionamento do painel de acessibilidade (alto contraste, A+/A−, PT/EN)
+- Animações AOS ao rolar a página
+- Modal SweetAlert2 ao enviar o formulário
+- Validação dos campos obrigatórios com mensagens de erro
+- Navegação por teclado (Tab, Enter, Escape)
+- Skip link funcional ao pressionar Tab
+
+### Testes em Dispositivo Móvel (iOS)
+Testado no **iPhone** via **fernandoscar.github.io** (GitHub Pages), confirmando:
+
+- Layout responsivo funcionando corretamente em tela pequena
+- Logo SVG renderizando com proporção correta
+- Hero com imagem de fundo, título e botões bem posicionados
+- Seção "Sobre" com texto legível e bem espaçado
+- Botão do painel de acessibilidade (♿) visível e clicável
+- Scroll suave entre seções
+
+> 📱 Prints do teste mobile disponíveis abaixo:
+
+| Hero (mobile) | Seção Sobre (mobile) |
+|---|---|
+| Layout responsivo com logo, hero image e botões de ação | Texto fluindo corretamente em coluna única |
+
+---
+
+
 
 - **HTML5** — estrutura semântica
 - **CSS3** — variáveis CSS, Grid, Flexbox, animações, `clamp()` para tipografia responsiva
@@ -187,3 +218,7 @@ Todo o CSS e JavaScript estão embutidos no `index.html` para facilitar a entreg
 Desenvolvido por **Fernando** — estudante de Engenharia de Software, 3º semestre.
 
 Projeto acadêmico — Disciplina de Desenvolvimento Web.
+
+---
+
+*Desenvolvido com a assistência do [Claude](https://claude.ai) — IA da Anthropic.*
