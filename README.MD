@@ -27,7 +27,7 @@ Substituição de todas as `<div>` genéricas por tags com significado:
 - `<section aria-labelledby>` — cada seção identificada pelo seu título
 - `<blockquote>` — depoimentos/avaliações de clientes
 - `<address>` — dados de contato no rodapé
-- `<figure>` e `<time datetime>` — marcação semântica de mídia e datas
+- `<time datetime>` — marcação semântica de datas
 - `<aside>` — painel de ferramentas de acessibilidade
 
 ### 🟠 Missão 3 — Acessibilidade (2 pts)
@@ -73,7 +73,7 @@ Widget flutuante no canto inferior direito com o símbolo internacional de acess
 | Ferramenta | O que faz |
 |---|---|
 | 🌓 Alto Contraste | Alterna para esquema de cores de alto contraste (fundo preto, texto branco, amarelo) |
-| A+ / A− | Aumenta ou diminui o tamanho da fonte em toda a página (salvo no localStorage) |
+| A+ / A− | Aumenta ou diminui o tamanho da fonte em toda a página (salvo no `localStorage`) |
 | 🌐 PT / EN | Traduz todo o conteúdo da página entre Português e Inglês |
 
 **Detalhes técnicos do painel:**
@@ -157,27 +157,28 @@ Todo o CSS e JavaScript estão embutidos no `index.html` para facilitar a entreg
 
 ---
 
-## 🛠️ 🛠️ Tecnologias Utilizadas
- HTML5 — estrutura semântica
- CSS3 — variáveis CSS, Grid, Flexbox, animações, ⁠clamp()⁠ para tipografia responsiva
- JavaScript vanilla — painel de acessibilidade, troca de idioma, validação de formulário
- Google Fonts — Josefin Sans + Smooch
- SVG inline — logo e ícones sem dependências externas
- AOS (Animate On Scroll) — biblioteca para animações de rolagem
- SweetAlert2 — biblioteca para modais de alerta customizados
+## 🛠️ Tecnologias Utilizadas
+
+- **HTML5** — estrutura semântica
+- **CSS3** — variáveis CSS, Grid, Flexbox, animações, `clamp()` para tipografia responsiva
+- **JavaScript vanilla** — painel de acessibilidade, troca de idioma, validação de formulário
+- **Google Fonts** — [Josefin Sans](https://fonts.google.com/specimen/Josefin+Sans) + [Smooch](https://fonts.google.com/specimen/Smooch)
+- **SVG inline** — logo e ícones sem dependências externas
+- **[AOS v2.3.4](https://michalsnik.github.io/aos/)** — animações de entrada ao rolar a página (via CDN)
+- **[SweetAlert2 v11](https://sweetalert2.github.io/)** — modais acessíveis e estilizados para feedback do formulário (via CDN)
 
 ---
 
 ## 📚 Referências
- MDN Web Docs — HTML Semântico
- WCAG 2.1 — Web Content Accessibility Guidelines
- eMAG — Modelo de Acessibilidade em Governo Eletrônico
- W3C Validator
- WAVE — Web Accessibility Evaluation Tool
- Google Search Central — Como o Google interpreta HTML
- AOS (Animate On Scroll) Documentation
- SweetAlert2 Documentation
 
+- [MDN Web Docs — HTML Semântico](https://developer.mozilla.org/pt-BR/docs/Glossary/Semantics)
+- [WCAG 2.1 — Web Content Accessibility Guidelines](https://www.w3.org/TR/WCAG21/)
+- [eMAG — Modelo de Acessibilidade em Governo Eletrônico](https://emag.governoeletronico.gov.br/)
+- [W3C Validator](https://validator.w3.org/)
+- [WAVE — Web Accessibility Evaluation Tool](https://wave.webaim.org/)
+- [Google Search Central — Como o Google interpreta HTML](https://developers.google.com/search/docs/fundamentals/seo-starter-guide)
+- [AOS — Animate On Scroll Documentation](https://michalsnik.github.io/aos/)
+- [SweetAlert2 Documentation](https://sweetalert2.github.io/)
 
 ---
 
