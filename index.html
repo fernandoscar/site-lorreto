@@ -4,16 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!--
-    ✅ MISSÃO 4 — SEO (1 pt)
-    <title> descritivo e único. Meta description clara.
-    Hierarquia de títulos: H1 (hero) → H2 (seções) → H3 (cards/itens)
-  -->
   <title>Loretto Café | A Santa Casa do Café</title>
   <meta name="description" content="Loretto Café: café artesanal gourmet, espaço para eventos, torrefação personalizada e locação de máquinas em Espírito Santo do Pinhal - SP." />
   <link rel="canonical" href="https://loretto.com.br/" />
 
-  <!-- Open Graph -->
   <meta property="og:title" content="Loretto Café | A Santa Casa do Café" />
   <meta property="og:description" content="Café artesanal gourmet, espaço para eventos e muito mais." />
   <meta property="og:image" content="https://loretto.com.br/wp-content/uploads/2023/05/logo-preto.png" />
@@ -24,6 +18,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&family=Smooch&display=swap" rel="stylesheet" />
+
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
   <style>
     /* ── Variáveis ─────────────────────────────────────────── */
@@ -473,7 +469,7 @@
 
     /* ── DEPOIMENTOS ────────────────────────────────────────── */
     /*
-      ✅ MISSÃO 2 — <section> + <blockquote> semântico para cada avaliação.
+      ✅ MISSÃO 2 — <section> + blockquote semântico para cada avaliação.
     */
     .reviews {
       padding-block: 5rem;
@@ -484,7 +480,7 @@
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 1.5rem;
     }
-    /* ✅ MISSÃO 2 — <blockquote> é a tag semântica para citações/depoimentos */
+    /* ✅ MISSÃO 2 — blockquote é a tag semântica para citações/depoimentos */
     .review-card {
       background: rgba(255,255,255,.04);
       border: 1px solid rgba(242,177,56,.12);
@@ -676,7 +672,8 @@
       from { opacity: 0; transform: translateY(24px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-    .hero__content { animation: fadeUp .9s ease both; }
+    /* O AOS substituirá essa animação se estiver no mesmo elemento, mas podemos manter para fallback */
+    .hero__content.no-aos { animation: fadeUp .9s ease both; }
 
     /* ── Responsivo ──────────────────────────────────────────── */
     @media (max-width: 768px) {
@@ -693,24 +690,10 @@
 </head>
 <body>
 
-  <!--
-    ✅ MISSÃO SECRETA ⭐ — Skip Link
-    Visível ao pressionar Tab: leva direto ao conteúdo principal.
-  -->
   <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
 
-  <!--
-    ✅ ACESSIBILIDADE — Widget flutuante no canto inferior direito.
-    Botão ♿ expande/colapsa o painel com alto contraste,
-    tamanho de fonte e troca de idioma.
-    Totalmente acessível por teclado (Tab + Enter/Space).
-
-    ✅ MISSÃO 2 — <aside> é a tag semântica correta para conteúdo
-    complementar ao principal, como ferramentas de acessibilidade.
-  -->
   <aside class="a11y-widget" aria-label="Ferramentas de acessibilidade">
 
-    <!-- Painel de opções (escondido por padrão) -->
     <div
       class="a11y-panel"
       id="a11y-panel"
@@ -720,7 +703,6 @@
     >
       <p class="a11y-panel__titulo">Acessibilidade</p>
 
-      <!-- Alto contraste -->
       <button
         class="a11y-btn"
         id="btn-contraste"
@@ -731,7 +713,6 @@
         <span class="a11y-btn__icon">🌓</span> Alto Contraste
       </button>
 
-      <!-- Fonte maior -->
       <button
         class="a11y-btn"
         aria-label="Aumentar tamanho da fonte"
@@ -740,7 +721,6 @@
         <span class="a11y-btn__icon">A+</span> Aumentar fonte
       </button>
 
-      <!-- Fonte menor -->
       <button
         class="a11y-btn"
         aria-label="Diminuir tamanho da fonte"
@@ -749,7 +729,6 @@
         <span class="a11y-btn__icon">A−</span> Diminuir fonte
       </button>
 
-      <!-- Idioma -->
       <button
         class="a11y-btn"
         id="btn-idioma"
@@ -762,7 +741,6 @@
 
     </div>
 
-    <!-- Botão gatilho com símbolo de acessibilidade -->
     <button
       class="a11y-trigger"
       id="a11y-trigger"
@@ -771,7 +749,6 @@
       aria-label="Abrir ferramentas de acessibilidade"
       onclick="togglePainel()"
     >
-      <!-- Símbolo internacional de acessibilidade (ISA) -->
       <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <circle cx="50" cy="14" r="10"/>
         <path d="M35 28 Q50 24 65 28 L68 52 H82 a4 4 0 0 1 0 8 H66 a4 4 0 0 1-4-3.5L60 42 H52 L58 66 L70 88 a4 4 0 0 1-7 4 L50 70 L37 92 a4 4 0 0 1-7-4 L42 66 L36 42 H28 a4 4 0 0 1 0-8 H34 Z"/>
@@ -781,30 +758,20 @@
   </aside>
   <div id="a11y-anuncio" aria-live="assertive" aria-atomic="true" class="sr-only"></div>
 
-  <!--
-    ✅ MISSÃO 1 — <header> semântico correto (não é <div>!)
-    ✅ MISSÃO 2 — <nav> com aria-label descritivo
-    ✅ MISSÃO 3 — imagem do logo com alt descritivo
-  -->
   <header class="site-header" role="banner">
     <div class="container header-inner">
 
-      <!-- Logo SVG inspirada na identidade visual da Loretto Café -->
       <a href="#" class="logo-svg-wrap" aria-label="Loretto Café — página inicial">
         <svg viewBox="0 0 280 90" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Logotipo Loretto Café">
           <title>Loretto Café</title>
-          <!-- Auréola dourada -->
           <ellipse cx="194" cy="12" rx="14" ry="6" fill="none" stroke="#f2b138" stroke-width="2.5" stroke-dasharray="0"/>
           <ellipse cx="194" cy="12" rx="14" ry="6" fill="#f2b138" opacity=".18"/>
-          <!-- Texto cursivo "loretto" -->
           <text x="8" y="58"
             font-family="'Smooch', 'Dancing Script', Georgia, cursive"
             font-size="62"
             fill="#1a1008"
             letter-spacing="-1">loretto</text>
-          <!-- Sublinhado decorativo -->
           <line x1="8" y1="66" x2="232" y2="66" stroke="#1a1008" stroke-width="1.2" opacity=".3"/>
-          <!-- Tagline -->
           <text x="8" y="84"
             font-family="'Josefin Sans', Arial, sans-serif"
             font-size="9.5"
@@ -813,7 +780,6 @@
         </svg>
       </a>
 
-      <!-- ✅ MISSÃO 2 — <nav> semântico com aria-label -->
       <nav aria-label="Navegação principal">
         <ul class="nav-list" role="list">
           <li><a href="#servicos"     id="nav-servicos">Serviços</a></li>
@@ -827,21 +793,13 @@
     </div>
   </header>
 
-  <!--
-    ✅ MISSÃO 1 — único <main> da página, com id para o skip-link
-  -->
   <main id="conteudo-principal">
 
-    <!-- ── HERO ──────────────────────────────────────────────── -->
     <section class="hero" aria-labelledby="hero-titulo">
       <div class="container">
-        <div class="hero__content">
+        <div class="hero__content" data-aos="fade-up">
           <span class="hero__eyebrow">Loretto Café · Bourbon · Gourmet · Premium</span>
 
-          <!--
-            ✅ MISSÃO 4 — único H1 da página
-            Hierarquia: H1 (hero) → H2 (seções) → H3 (cards)
-          -->
           <h1 id="hero-titulo" class="hero__title">Loretto Café</h1>
           <p id="hero-subtitulo" class="hero__subtitle">A Santa Casa do Café</p>
           <p id="hero-desc" class="hero__desc">
@@ -858,11 +816,6 @@
       </div>
     </section>
 
-    <!-- ── SERVIÇOS ───────────────────────────────────────────── -->
-    <!--
-      ✅ MISSÃO 2 — <section> semântico com aria-labelledby
-      ✅ MISSÃO 4 — H2 correto
-    -->
     <section id="servicos" class="services" aria-labelledby="servicos-titulo">
       <div class="container">
         <span class="section-label" aria-hidden="true">O que oferecemos</span>
@@ -872,11 +825,6 @@
 
         <div class="services-grid">
 
-          <!--
-            ✅ MISSÃO 2 — <article> para cada serviço
-            ✅ MISSÃO 3 — SVG decorativo com aria-hidden
-            ✅ MISSÃO 4 — H3 dentro dos cards
-          -->
           <article class="service-card">
             <svg class="service-card__icon" aria-hidden="true" viewBox="0 0 810 810" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path d="M138 176v560h152v-58h242v58h137V176h-44v69H484V326c0 3-3 6-6 6h-28v37h-26v-37h-29v37h-26v-37h-28c-3 0-6-3-6-6v-81H196V176zm148 254h252c5 0 9 2 12 5s5 9 5 14v8h37c9 0 17 3 22 9l1 1c5 6 8 13 8 21v36c0 10-4 19-10 25s-15 10-25 10h-40c-14 40-44 68-80 83-18 7-38 11-58 11s-38-4-56-11c-47-19-83-63-83-134v-59c0-5 2-9 5-12s8-5 13-5zm306 25h-37v62h32c4 0 8-2 10-4s4-8 4-12v-36c0-3-1-5-3-7l-1-1c-2-2-4-2-5-2zm-58-25H289v56c0 61 31 99 71 115 16 7 33 10 50 10s34-3 50-10c41-17 74-55 74-113v-58z"/>
@@ -921,19 +869,10 @@
       </div>
     </section>
 
-    <!-- ── SOBRE / HISTÓRIA ───────────────────────────────────── -->
-    <!--
-      ✅ MISSÃO 2 — <section> semântico
-      ✅ MISSÃO 3 — imagem com alt descritivo
-      ✅ MISSÃO 4 — H2 correto
-    -->
     <section id="sobre" class="about" aria-labelledby="sobre-titulo">
       <div class="container">
-        <div class="about__inner">
+        <div class="about__inner" data-aos="fade-right">
 
-          <!--
-            ✅ MISSÃO 3 — alt descritivo da cena, não apenas "imagem"
-          -->
           <img
             class="about__img"
             src="https://loretto.com.br/wp-content/uploads/2023/05/Fachada-Loja-Loretto-1024x1024.png"
@@ -980,15 +919,9 @@
       </div>
     </section>
 
-    <!-- ── PET FRIENDLY ───────────────────────────────────────── -->
-    <!--
-      ✅ MISSÃO 2 — <section> semântico separado (conteúdo distinto)
-      ✅ MISSÃO 3 — imagem com alt descritivo
-      ✅ MISSÃO 4 — H2 correto
-    -->
     <section id="pet" class="pet" aria-labelledby="pet-titulo">
       <div class="container">
-        <div class="pet__inner">
+        <div class="pet__inner" data-aos="fade-left">
 
           <div class="pet__text">
             <span class="section-label" id="pet-label" aria-hidden="true">Bem-vindos, peludinhos!</span>
@@ -1008,9 +941,6 @@
             </p>
           </div>
 
-          <!--
-            ✅ MISSÃO 3 — alt descritivo e não vazio (havia alt="" no original!)
-          -->
           <img
             class="pet__img"
             src="https://loretto.com.br/wp-content/uploads/2023/06/loretto-pet-friendly.webp"
@@ -1024,12 +954,6 @@
       </div>
     </section>
 
-    <!-- ── ESPAÇOS PARA EVENTOS ───────────────────────────────── -->
-    <!--
-      ✅ MISSÃO 2 — <section> + <article> por card
-      ✅ MISSÃO 3 — todas as imagens com alt (havia alt="" no original!)
-      ✅ MISSÃO 4 — H2 seção, H3 cards
-    -->
     <section id="espacos" class="events" aria-labelledby="espacos-titulo">
       <div class="container">
         <span class="section-label" id="espacos-label" aria-hidden="true">Reserve seu momento</span>
@@ -1073,14 +997,6 @@
       </div>
     </section>
 
-    <!-- ── AGENDAMENTOS ───────────────────────────────────────── -->
-    <!--
-      ✅ MISSÃO 1 — <section> dentro do <main>
-      ✅ MISSÃO 2 — <section> semântico
-      ✅ MISSÃO 3 — todos os inputs têm <label> via for/id
-                     aria-required nos campos obrigatórios
-      ✅ MISSÃO SECRETA — aria-live anuncia confirmação
-    -->
     <section id="agendamentos" class="booking" aria-labelledby="booking-titulo">
       <div class="container">
         <div class="booking__inner">
@@ -1095,17 +1011,11 @@
               seu evento familiar ou corporativo um momento inesquecível.
             </p>
 
-            <!--
-              ✅ MISSÃO SECRETA ⭐ — aria-live="polite"
-              Leitores de tela anunciam a confirmação após envio
-              sem interromper a navegação do usuário.
-            -->
             <div id="form-status" aria-live="polite" aria-atomic="true" class="sr-only"></div>
 
             <form class="form" id="reserva-form" onsubmit="handleSubmit(event)">
 
               <div class="form__row">
-                <!-- ✅ MISSÃO 3 — <label> associado via for/id -->
                 <div class="form__group">
                   <label class="form__label" for="nome"><span id="label-nome">Nome completo</span> <span aria-hidden="true">*</span></label>
                   <input
@@ -1157,7 +1067,6 @@
                 <span id="telefone-erro" class="form__erro" aria-live="polite"></span>
               </div>
 
-              <!-- ✅ MISSÃO 3 — <label> no <select> também -->
               <div class="form__group">
                 <label class="form__label" for="tipo-evento"><span id="label-evento">Tipo de Evento</span></label>
                 <select class="form__select" id="tipo-evento" name="tipo-evento">
@@ -1200,9 +1109,6 @@
             </form>
           </div>
 
-          <!--
-            ✅ MISSÃO 3 — alt descritivo na imagem lateral
-          -->
           <div class="booking__img-wrap">
             <img
               class="booking__img"
@@ -1218,11 +1124,6 @@
       </div>
     </section>
 
-    <!-- ── GALERIA ────────────────────────────────────────────── -->
-    <!--
-      ✅ MISSÃO 2 — <section> semântico
-      ✅ MISSÃO 3 — todas as imagens com alt descritivo
-    -->
     <section class="gallery" aria-labelledby="galeria-titulo">
       <div class="container">
         <span class="section-label" id="galeria-label" aria-hidden="true">Nossa galeria</span>
@@ -1236,7 +1137,7 @@
           <img src="https://loretto.com.br/wp-content/uploads/2023/05/Espaco-Kids-Loretto-03.jpg"                          alt="Espaço Kids com playground para crianças" loading="lazy" width="400" height="400" />
           <img src="https://loretto.com.br/wp-content/uploads/2023/05/cafe-espresso-com-bolo-de-chocolate.jpg"             alt="Espresso servido com bolo de chocolate" loading="lazy" width="400" height="400" />
           <img src="https://loretto.com.br/wp-content/uploads/2023/05/balcao-espresso-1.jpg"                               alt="Balcão de espresso da Loretto Café" loading="lazy" width="400" height="400" />
-          <img src="https://loretto.com.br/wp-content/uploads/2023/05/Torta-de-Ferrero-Rocher.jpg"                        alt="Torta de Ferrero Rocher decorada" loading="lazy" width="400" height="400" />
+          <img src="https://loretto.com.br/wp-content/uploads/2023/05/Torta-de-Ferrero-Rocher.jpg"                         alt="Torta de Ferrero Rocher decorada" loading="lazy" width="400" height="400" />
           <img src="https://loretto.com.br/wp-content/uploads/2023/05/cafe-espresso-com-pao-de-queijo-1.jpg"               alt="Café espresso servido com pão de queijo mineiro" loading="lazy" width="400" height="400" />
           <img src="https://loretto.com.br/wp-content/uploads/2023/05/capuccino-loretto-com-lanche-especial-da-casa.jpg"   alt="Cappuccino Loretto com lanche especial da casa" loading="lazy" width="400" height="400" />
           <img src="https://loretto.com.br/wp-content/uploads/2023/05/Torta-de-Uva.jpg"                                    alt="Torta de uva com decoração artesanal" loading="lazy" width="400" height="400" />
@@ -1245,13 +1146,8 @@
       </div>
     </section>
 
-    <!-- ── DEPOIMENTOS ───────────────────────────────────────── -->
-    <!--
-      ✅ MISSÃO 2 — <section> semântico + <blockquote> para cada avaliação
-      ✅ MISSÃO 4 — H2 correto
-    -->
     <section id="depoimentos" class="reviews" aria-labelledby="reviews-titulo">
-      <div class="container">
+      <div class="container" data-aos="zoom-in">
         <span class="section-label" id="reviews-label" aria-hidden="true">Google Avaliações · 4,5 ★</span>
         <h2 id="reviews-titulo" class="section-title"><span id="sec-reviews">O que estão dizendo sobre nós</span></h2>
 
@@ -1317,12 +1213,6 @@
 
   </main>
 
-  <!-- ── FOOTER ─────────────────────────────────────────────── -->
-  <!--
-    ✅ MISSÃO 1 — <footer> semântico correto
-    ✅ MISSÃO 2 — <address> para dados de contato
-    ✅ MISSÃO 3 — logo com alt descritivo
-  -->
   <footer class="site-footer" role="contentinfo">
     <div class="container">
 
@@ -1359,7 +1249,16 @@
     </div>
   </footer>
 
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
   <script>
+    /* ✅ INICIANDO O AOS */
+    AOS.init({
+      once: true,
+      duration: 800
+    });
+
     /* ════════════════════════════════════════════════════════
        PAINEL DE ACESSIBILIDADE
        ════════════════════════════════════════════════════════ */
@@ -1437,13 +1336,13 @@
 
       /* ── Serviços ── */
       'sec-servicos':  { pt: 'Desfrute de nossos produtos',  en: 'Enjoy our products'   },
-      'svc1-titulo':   { pt: 'Locação de Máquinas',          en: 'Machine Rental'        },
+      'svc1-titulo':   { pt: 'Locação de Máquinas',          en: 'Machine Rental'       },
       'svc1-desc':     { pt: 'Desfrute de um café excepcional com nossas máquinas de café espresso de alta qualidade.', en: 'Enjoy exceptional coffee with our high-quality espresso machines.' },
-      'svc2-titulo':   { pt: 'Torrefação Personalizada',     en: 'Custom Roasting'       },
+      'svc2-titulo':   { pt: 'Torrefação Personalizada',     en: 'Custom Roasting'      },
       'svc2-desc':     { pt: 'Aprenda os segredos da torrefação de café com nossos especialistas — torre seu próprio café conosco.', en: 'Learn coffee roasting secrets with our experts — roast your own coffee with us.' },
-      'svc3-titulo':   { pt: 'Espaço para Eventos',          en: 'Event Space'           },
+      'svc3-titulo':   { pt: 'Espaço para Eventos',          en: 'Event Space'          },
       'svc3-desc':     { pt: 'Nosso espaço para eventos é perfeito para reuniões, comemorações e muito mais.', en: 'Our event space is perfect for meetings, celebrations and much more.' },
-      'svc4-titulo':   { pt: 'Pedidos via iFood',            en: 'Orders via iFood'      },
+      'svc4-titulo':   { pt: 'Pedidos via iFood',            en: 'Orders via iFood'     },
       'svc4-desc':     { pt: 'Nosso delivery rápido e confiável garante que você aproveite nossos produtos no conforto do seu lar.', en: 'Our fast and reliable delivery ensures you enjoy our products at home.' },
 
       /* ── Sobre ── */
@@ -1462,7 +1361,7 @@
 
       /* ── Espaços ── */
       'espacos-label':  { pt: 'Reserve seu momento',                         en: 'Reserve your moment'                    },
-      'espacos-titulo': { pt: 'Conheça nossas opções de espaços para Eventos', en: 'Discover our Event Spaces'             },
+      'espacos-titulo': { pt: 'Conheça nossas opções de espaços para Eventos', en: 'Discover our Event Spaces'              },
       'evt1-titulo':    { pt: 'Batizados',          en: 'Christenings'     },
       'evt1-desc':      { pt: 'Nosso espaço para batizados é o cenário perfeito para registrar momentos incríveis e eternizar essa data tão especial em família.', en: 'Our christening space is the perfect setting to capture incredible moments and immortalize this special family day.' },
       'evt2-titulo':    { pt: 'Reuniões',           en: 'Meetings'         },
@@ -1504,7 +1403,7 @@
       'rev6-data':  { pt: '29 de janeiro de 2023', en: 'January 29, 2023' },
 
       /* ── Footer ── */
-      'footer-tagline':  { pt: 'A Santa Casa do Café',                  en: 'The Holy House of Coffee'     },
+      'footer-tagline':  { pt: 'A Santa Casa do Café',                 en: 'The Holy House of Coffee'     },
       'footer-endereco': { pt: 'Espírito Santo do Pinhal — São Paulo, Brasil', en: 'Espírito Santo do Pinhal — São Paulo, Brazil' },
       'fnav-servicos':   { pt: 'Serviços',  en: 'Services'  },
       'fnav-sobre':      { pt: 'Sobre',     en: 'About'     },
@@ -1608,25 +1507,31 @@
 
       const status = document.getElementById('form-status');
       const form   = document.getElementById('reserva-form');
-      const btn    = form.querySelector('button[type="submit"]');
 
-      const msg = idiomaAtual === 'en'
+      // Tradução do SweetAlert2
+      const swalTitle = idiomaAtual === 'en' ? 'Success!' : 'Sucesso!';
+      const swalMsg = idiomaAtual === 'en'
         ? 'Booking sent! We will contact you soon.'
         : 'Agendamento enviado com sucesso! Em breve entraremos em contato.';
+      const swalBtnText = idiomaAtual === 'en' ? 'Great' : 'Excelente';
 
-      status.textContent = msg;
-      btn.textContent = idiomaAtual === 'en' ? '✓ Booking sent!' : '✓ Agendamento enviado!';
-      btn.disabled = true;
-      btn.style.background = '#4caf50';
-      btn.style.color = '#fff';
+      // Anuncia para leitores de tela de forma discreta via aria-live
+      status.textContent = swalMsg;
 
-      setTimeout(() => {
+      // ✅ Dispara o modal do SweetAlert2
+      Swal.fire({
+        title: swalTitle,
+        text: swalMsg,
+        icon: 'success',
+        iconColor: '#f2b138', // Dourado Loretto
+        background: '#1a1008', // Escuro Loretto
+        color: '#e8d5b0', // Texto Loretto
+        confirmButtonColor: '#f2b138', // Botão Dourado Loretto
+        confirmButtonText: `<span style="color:#1a1008; font-weight:bold;">${swalBtnText}</span>`
+      }).then(() => {
+        // Reseta o formulário apenas após confirmar o alerta
         form.reset();
         document.getElementById('horas-valor').textContent = '1';
-        btn.textContent = idiomaAtual === 'en' ? 'Request Booking' : 'Pedir Agendamento';
-        btn.disabled = false;
-        btn.style.background = '';
-        btn.style.color = '';
         status.textContent = '';
         // Limpa erros
         ['nome', 'email', 'telefone'].forEach(id => {
@@ -1635,7 +1540,7 @@
           const input = document.getElementById(id);
           if (input) { input.classList.remove('invalido'); input.removeAttribute('aria-invalid'); }
         });
-      }, 3000);
+      });
     }
   </script>
 
