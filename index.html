@@ -4,10 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!--
+    ✅ MISSÃO 4 — SEO (1 pt)
+    <title> descritivo e único. Meta description clara.
+    Hierarquia de títulos: H1 (hero) → H2 (seções) → H3 (cards/itens)
+  -->
   <title>Loretto Café | A Santa Casa do Café</title>
   <meta name="description" content="Loretto Café: café artesanal gourmet, espaço para eventos, torrefação personalizada e locação de máquinas em Espírito Santo do Pinhal - SP." />
   <link rel="canonical" href="https://loretto.com.br/" />
 
+  <!-- Open Graph -->
   <meta property="og:title" content="Loretto Café | A Santa Casa do Café" />
   <meta property="og:description" content="Café artesanal gourmet, espaço para eventos e muito mais." />
   <meta property="og:image" content="https://loretto.com.br/wp-content/uploads/2023/05/logo-preto.png" />
@@ -19,7 +25,19 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&family=Smooch&display=swap" rel="stylesheet" />
 
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!--
+    ═══════════════════════════════════════════════════════════
+    FRAMEWORKS JAVASCRIPT UTILIZADOS
+    ═══════════════════════════════════════════════════════════
+    1. AOS 2.3.4 (Animate On Scroll) — Animações de entrada
+       nos elementos conforme o usuário rola a página.
+    2. SweetAlert2 11.x — Modais acessíveis e estilizados
+       para feedback do formulário de agendamento.
+    ═══════════════════════════════════════════════════════════
+  -->
+
+  <!-- AOS - Animate On Scroll CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
   <style>
     /* ── Variáveis ─────────────────────────────────────────── */
@@ -85,11 +103,6 @@
     .btn--gold    { background: var(--gold); color: var(--dark); }
     .btn--outline { background: transparent; border: 2px solid var(--gold); color: var(--gold); }
 
-    /*
-      ✅ MISSÃO SECRETA ⭐ — Skip Link
-      Usuários de teclado pressionam Tab e veem este link para
-      pular direto ao conteúdo principal.
-    */
     .skip-link {
       position: absolute;
       top: -100%;
@@ -104,7 +117,6 @@
     }
     .skip-link:focus { top: 0; }
 
-    /* Classe para leitores de tela */
     .sr-only {
       position: absolute; width: 1px; height: 1px;
       padding: 0; margin: -1px; overflow: hidden;
@@ -112,10 +124,6 @@
     }
 
     /* ── HEADER ─────────────────────────────────────────────── */
-    /*
-      ✅ MISSÃO 1 — Estrutura Base: <header> semântico correto.
-      ✅ MISSÃO 2 — <nav> com aria-label.
-    */
     .site-header {
       position: sticky;
       top: 0;
@@ -137,8 +145,6 @@
       color: var(--dark2);
       margin-top: .1rem;
     }
-
-    /* ✅ MISSÃO 2 — <nav> com aria-label descritivo */
     .nav-list {
       display: flex;
       gap: 1.75rem;
@@ -155,10 +161,6 @@
     .nav-list a:hover { color: var(--gold-dk); }
 
     /* ── HERO ───────────────────────────────────────────────── */
-    /*
-      ✅ MISSÃO 1 — <main> envolve todo o conteúdo principal.
-      ✅ MISSÃO 4 — único H1 na página.
-    */
     .hero {
       background: var(--dark);
       background-image: url('https://loretto.com.br/wp-content/uploads/2023/05/ambiente-interno-1.jpg');
@@ -183,7 +185,6 @@
       font-weight: 600;
       margin-bottom: 1rem;
     }
-    /* ✅ MISSÃO 4 — H1 único, hierarquia correta */
     .hero__title {
       font-family: 'Smooch', cursive;
       font-size: clamp(3rem, 7vw, 5.5rem);
@@ -208,479 +209,119 @@
     .hero__actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
     /* ── SERVIÇOS ───────────────────────────────────────────── */
-    /*
-      ✅ MISSÃO 2 — <section> semântico com aria-labelledby.
-      ✅ MISSÃO 4 — H2 correto na seção.
-    */
-    .services {
-      padding-block: 5rem;
-      background: var(--dark2);
-    }
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 2rem;
-    }
-    /*
-      ✅ MISSÃO 2 — <article> para cada serviço (conteúdo independente).
-      ✅ MISSÃO 3 — ícone SVG com aria-hidden pois o texto já descreve.
-    */
-    .service-card {
-      display: flex;
-      gap: 1rem;
-      align-items: flex-start;
-    }
-    .service-card__icon {
-      flex-shrink: 0;
-      width: 56px;
-      height: 56px;
-      color: var(--gold);
-    }
-    /* ✅ MISSÃO 4 — H3 dentro dos cards de serviço */
-    .service-card__title {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: .3rem;
-      letter-spacing: .05em;
-    }
+    .services { padding-block: 5rem; background: var(--dark2); }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; }
+    .service-card { display: flex; gap: 1rem; align-items: flex-start; }
+    .service-card__icon { flex-shrink: 0; width: 56px; height: 56px; color: var(--gold); }
+    .service-card__title { font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: .3rem; letter-spacing: .05em; }
     .service-card__desc { font-size: .88rem; color: var(--muted); }
 
-    /* ── SOBRE / HISTÓRIA ───────────────────────────────────── */
-    /*
-      ✅ MISSÃO 2 — <section> semântico.
-      ✅ MISSÃO 3 — imagem com alt descritivo.
-      ✅ MISSÃO 4 — H2 correto.
-    */
-    .about {
-      padding-block: 5rem;
-      background: var(--dark);
-    }
-    .about__inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-    .about__img {
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      width: 100%;
-      height: 480px;
-      object-fit: cover;
-    }
-    .about__text h2 {
-      font-family: 'Smooch', cursive;
-      font-size: clamp(1.8rem, 3vw, 2.6rem);
-      color: var(--gold);
-      line-height: 1.2;
-      margin-bottom: 1.25rem;
-      text-align: left;
-    }
+    /* ── SOBRE ───────────────────────────────────────────────── */
+    .about { padding-block: 5rem; background: var(--dark); }
+    .about__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .about__img { border-radius: var(--radius); box-shadow: var(--shadow); width: 100%; height: 480px; object-fit: cover; }
+    .about__text h2 { font-family: 'Smooch', cursive; font-size: clamp(1.8rem, 3vw, 2.6rem); color: var(--gold); line-height: 1.2; margin-bottom: 1.25rem; text-align: left; }
     .about__text p { color: var(--muted); margin-bottom: 1rem; font-size: .95rem; }
     .about__text strong { color: var(--gold); }
 
     /* ── PET FRIENDLY ───────────────────────────────────────── */
-    .pet {
-      padding-block: 5rem;
-      background: var(--dark2);
-    }
-    .pet__inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
+    .pet { padding-block: 5rem; background: var(--dark2); }
+    .pet__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
     .pet__text { order: -1; }
-    .pet__text h2 {
-      font-family: 'Smooch', cursive;
-      font-size: clamp(1.8rem, 3vw, 2.6rem);
-      color: var(--gold);
-      line-height: 1.2;
-      margin-bottom: 1.25rem;
-    }
+    .pet__text h2 { font-family: 'Smooch', cursive; font-size: clamp(1.8rem, 3vw, 2.6rem); color: var(--gold); line-height: 1.2; margin-bottom: 1.25rem; }
     .pet__text p { color: var(--muted); margin-bottom: 1rem; font-size: .95rem; }
     .pet__text strong { color: var(--gold); }
-    .pet__img {
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      width: 100%;
-      height: 420px;
-      object-fit: cover;
-    }
+    .pet__img { border-radius: var(--radius); box-shadow: var(--shadow); width: 100%; height: 420px; object-fit: cover; }
 
-    /* ── ESPAÇOS PARA EVENTOS ───────────────────────────────── */
-    /*
-      ✅ MISSÃO 2 — <section> + <article> para cada card.
-      ✅ MISSÃO 3 — alt em todas as imagens.
-      ✅ MISSÃO 4 — H2 seção, H3 cards.
-    */
-    .events {
-      padding-block: 5rem;
-      background: var(--dark);
-    }
-    .events-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
-    }
-    .event-card {
-      background: var(--dark2);
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      transition: transform .25s;
-      text-align: center;
-    }
+    /* ── EVENTOS ───────────────────────────────────────────── */
+    .events { padding-block: 5rem; background: var(--dark); }
+    .events-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+    .event-card { background: var(--dark2); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); transition: transform .25s; text-align: center; }
     .event-card:hover { transform: translateY(-5px); }
-    .event-card__img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      filter: grayscale(30%);
-      transition: filter .3s;
-    }
+    .event-card__img { width: 100%; height: 200px; object-fit: cover; filter: grayscale(30%); transition: filter .3s; }
     .event-card:hover .event-card__img { filter: grayscale(0%); }
     .event-card__body { padding: 1.25rem; }
-    .event-card__title {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--gold);
-      margin-bottom: .5rem;
-      letter-spacing: .05em;
-    }
+    .event-card__title { font-size: 1.1rem; font-weight: 700; color: var(--gold); margin-bottom: .5rem; letter-spacing: .05em; }
     .event-card__desc { font-size: .88rem; color: var(--muted); }
 
-    /* ── AGENDAMENTOS / FORMULÁRIO ──────────────────────────── */
-    /*
-      ✅ MISSÃO 1 — <section> dentro do <main>.
-      ✅ MISSÃO 3 — todos os <label> associados via for/id.
-      ✅ MISSÃO SECRETA — aria-live para feedback.
-    */
-    .booking {
-      padding-block: 5rem;
-      background: var(--dark2);
-    }
-    .booking__inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-    .booking__text h2 {
-      font-family: 'Smooch', cursive;
-      font-size: clamp(1.8rem, 3vw, 2.6rem);
-      color: var(--gold);
-      line-height: 1.2;
-      margin-bottom: 1rem;
-    }
+    /* ── FORMULÁRIO ──────────────────────────────────────────── */
+    .booking { padding-block: 5rem; background: var(--dark2); }
+    .booking__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .booking__text h2 { font-family: 'Smooch', cursive; font-size: clamp(1.8rem, 3vw, 2.6rem); color: var(--gold); line-height: 1.2; margin-bottom: 1rem; }
     .booking__text p { color: var(--muted); font-size: .95rem; margin-bottom: 1.5rem; }
-    .booking__img-wrap {
-      position: relative;
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      aspect-ratio: 3 / 4;
-      max-height: 560px;
-    }
-    .booking__img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      display: block;
-    }
+    .booking__img-wrap { position: relative; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); aspect-ratio: 3 / 4; max-height: 560px; }
+    .booking__img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
     .form { display: grid; gap: 1rem; }
     .form__group { display: flex; flex-direction: column; gap: .35rem; }
-    /* ✅ MISSÃO 3 — <label> visível e associado */
-    .form__label {
-      font-size: .8rem;
-      font-weight: 700;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: var(--gold);
-    }
-    .form__input,
-    .form__select,
-    .form__range {
-      padding: .75rem 1rem;
-      border-radius: 8px;
-      border: 1.5px solid rgba(242,177,56,.2);
-      background: rgba(255,255,255,.06);
-      color: var(--white);
-      font-family: 'Josefin Sans', sans-serif;
-      font-size: .95rem;
-      transition: border-color .2s;
-    }
-    .form__input:focus,
-    .form__select:focus {
-      outline: 2px solid var(--gold);
-      outline-offset: 2px;
-      border-color: var(--gold);
-    }
+    .form__label { font-size: .8rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--gold); }
+    .form__input, .form__select, .form__range { padding: .75rem 1rem; border-radius: 8px; border: 1.5px solid rgba(242,177,56,.2); background: rgba(255,255,255,.06); color: var(--white); font-family: 'Josefin Sans', sans-serif; font-size: .95rem; transition: border-color .2s; }
+    .form__input:focus, .form__select:focus { outline: 2px solid var(--gold); outline-offset: 2px; border-color: var(--gold); }
     .form__input::placeholder { color: rgba(255,255,255,.3); }
     .form__select option { background: var(--dark2); }
     .form__hint { font-size: .78rem; color: var(--muted); margin-top: .2rem; }
-
-    /* ✅ ACESSIBILIDADE — Mensagens de erro visíveis e anunciadas por leitores de tela */
-    .form__erro {
-      font-size: .78rem;
-      color: #ff6b6b;
-      min-height: 1.1em;
-      display: block;
-      margin-top: .2rem;
-    }
-    /* Destaque visual no campo inválido */
-    .form__input:invalid:not(:placeholder-shown),
-    .form__input.invalido {
-      border-color: #ff6b6b;
-      outline-color: #ff6b6b;
-    }
-    .form__input:valid:not(:placeholder-shown) {
-      border-color: #4caf50;
-    }
+    .form__erro { font-size: .78rem; color: #ff6b6b; min-height: 1.1em; display: block; margin-top: .2rem; }
+    .form__input:invalid:not(:placeholder-shown), .form__input.invalido { border-color: #ff6b6b; outline-color: #ff6b6b; }
+    .form__input:valid:not(:placeholder-shown) { border-color: #4caf50; }
     .form__range { padding: .4rem 0; background: transparent; border: none; cursor: pointer; }
     .form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
     .form__submit { width: 100%; padding: 1rem; font-size: .95rem; margin-top: .5rem; border-radius: 50px; }
 
     /* ── GALERIA ────────────────────────────────────────────── */
-    /*
-      ✅ MISSÃO 2 — <section> semântico.
-      ✅ MISSÃO 3 — todas as imagens com alt descritivo.
-    */
-    .gallery {
-      padding-block: 4rem;
-      background: var(--dark);
-    }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-      gap: .75rem;
-    }
-    .gallery-grid img {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-      border-radius: 8px;
-      transition: transform .25s, filter .25s;
-      filter: grayscale(20%);
-    }
+    .gallery { padding-block: 4rem; background: var(--dark); }
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: .75rem; }
+    .gallery-grid img { width: 100%; height: 160px; object-fit: cover; border-radius: 8px; transition: transform .25s, filter .25s; filter: grayscale(20%); }
     .gallery-grid img:hover { transform: scale(1.04); filter: grayscale(0%); }
 
     /* ── DEPOIMENTOS ────────────────────────────────────────── */
-    /*
-      ✅ MISSÃO 2 — <section> + blockquote semântico para cada avaliação.
-    */
-    .reviews {
-      padding-block: 5rem;
-      background: var(--dark2);
-    }
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-    }
-    /* ✅ MISSÃO 2 — blockquote é a tag semântica para citações/depoimentos */
-    .review-card {
-      background: rgba(255,255,255,.04);
-      border: 1px solid rgba(242,177,56,.12);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-    }
+    .reviews { padding-block: 5rem; background: var(--dark2); }
+    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+    .review-card { background: rgba(255,255,255,.04); border: 1px solid rgba(242,177,56,.12); border-radius: var(--radius); padding: 1.5rem; }
     .review-card__stars { color: var(--gold); font-size: 1rem; margin-bottom: .5rem; }
     .review-card__text { font-size: .9rem; color: var(--muted); margin-bottom: 1rem; font-style: italic; }
     .review-card__author { font-size: .82rem; font-weight: 700; color: var(--white); letter-spacing: .05em; }
     .review-card__date { font-size: .75rem; color: var(--muted); }
 
     /* ── FOOTER ─────────────────────────────────────────────── */
-    /*
-      ✅ MISSÃO 1 — <footer> correto.
-      ✅ MISSÃO 2 — <address> para dados de contato.
-    */
-    .site-footer {
-      background: #0a0500;
-      padding-block: 3rem;
-      text-align: center;
-      color: rgba(255,255,255,.5);
-    }
+    .site-footer { background: #0a0500; padding-block: 3rem; text-align: center; color: rgba(255,255,255,.5); }
     .footer__logo { height: 60px; width: auto; margin-inline: auto; margin-bottom: .5rem; }
-    .footer__tagline {
-      font-size: .72rem;
-      letter-spacing: .22em;
-      text-transform: uppercase;
-      color: var(--gold);
-      opacity: .7;
-      margin-bottom: 1.5rem;
-    }
-    /* ✅ MISSÃO 2 — <address> semântico para informações de contato */
-    .footer__address {
-      font-style: normal;
-      font-size: .88rem;
-      line-height: 2;
-      margin-bottom: 1.5rem;
-    }
+    .footer__tagline { font-size: .72rem; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); opacity: .7; margin-bottom: 1.5rem; }
+    .footer__address { font-style: normal; font-size: .88rem; line-height: 2; margin-bottom: 1.5rem; }
     .footer__address a { color: var(--gold); }
     .footer__address a:hover { text-decoration: underline; }
-    .footer__copy {
-      font-size: .75rem;
-      border-top: 1px solid rgba(255,255,255,.07);
-      padding-top: 1.25rem;
-      margin-top: 1rem;
-    }
+    .footer__copy { font-size: .75rem; border-top: 1px solid rgba(255,255,255,.07); padding-top: 1.25rem; margin-top: 1rem; }
 
     /* ── Logo SVG ────────────────────────────────────────────── */
     .logo-svg-wrap { display: flex; flex-direction: column; align-items: flex-start; text-decoration: none; }
     .logo-svg-wrap svg { height: 52px; width: auto; }
 
     /* ── PAINEL DE ACESSIBILIDADE ────────────────────────────── */
-    /*
-      Widget flutuante no canto inferior direito.
-      Botão com símbolo ♿ expande/colapsa o painel.
-      Totalmente acessível por teclado.
-    */
-    .a11y-widget {
-      position: fixed;
-      bottom: 1.5rem;
-      right: 1.5rem;
-      z-index: 9000;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: .5rem;
-    }
-
-    /* Painel de opções — escondido por padrão */
-    .a11y-panel {
-      background: var(--dark2);
-      border: 2px solid var(--gold);
-      border-radius: 14px;
-      padding: 1rem;
-      display: flex;
-      flex-direction: column;
-      gap: .5rem;
-      min-width: 180px;
-      box-shadow: 0 8px 32px rgba(0,0,0,.5);
-
-      /* Animação de expansão */
-      transform-origin: bottom right;
-      transform: scale(0.8);
-      opacity: 0;
-      pointer-events: none;
-      transition: transform .22s cubic-bezier(.34,1.56,.64,1), opacity .18s ease;
-    }
-    .a11y-panel.aberto {
-      transform: scale(1);
-      opacity: 1;
-      pointer-events: all;
-    }
-
-    .a11y-panel__titulo {
-      font-size: .72rem;
-      letter-spacing: .15em;
-      text-transform: uppercase;
-      color: var(--gold);
-      font-weight: 700;
-      padding-bottom: .5rem;
-      border-bottom: 1px solid rgba(242,177,56,.2);
-      margin-bottom: .25rem;
-    }
-
-    /* Botão individual dentro do painel */
-    .a11y-btn {
-      width: 100%;
-      height: 40px;
-      background: rgba(255,255,255,.05);
-      border: 1.5px solid rgba(242,177,56,.25);
-      border-radius: 8px;
-      color: var(--text);
-      font-size: .82rem;
-      font-weight: 700;
-      font-family: 'Josefin Sans', sans-serif;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: .6rem;
-      padding: 0 .85rem;
-      transition: background .18s, color .18s, border-color .18s;
-      letter-spacing: .04em;
-    }
-    .a11y-btn:hover,
-    .a11y-btn:focus {
-      background: var(--gold);
-      color: var(--dark);
-      border-color: var(--gold);
-      outline: 2px solid var(--gold);
-      outline-offset: 2px;
-    }
-    .a11y-btn[aria-pressed="true"] {
-      background: var(--gold);
-      color: var(--dark);
-      border-color: var(--gold);
-    }
+    .a11y-widget { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 9000; display: flex; flex-direction: column; align-items: flex-end; gap: .5rem; }
+    .a11y-panel { background: var(--dark2); border: 2px solid var(--gold); border-radius: 14px; padding: 1rem; display: flex; flex-direction: column; gap: .5rem; min-width: 180px; box-shadow: 0 8px 32px rgba(0,0,0,.5); transform-origin: bottom right; transform: scale(0.8); opacity: 0; pointer-events: none; transition: transform .22s cubic-bezier(.34,1.56,.64,1), opacity .18s ease; }
+    .a11y-panel.aberto { transform: scale(1); opacity: 1; pointer-events: all; }
+    .a11y-panel__titulo { font-size: .72rem; letter-spacing: .15em; text-transform: uppercase; color: var(--gold); font-weight: 700; padding-bottom: .5rem; border-bottom: 1px solid rgba(242,177,56,.2); margin-bottom: .25rem; }
+    .a11y-btn { width: 100%; height: 40px; background: rgba(255,255,255,.05); border: 1.5px solid rgba(242,177,56,.25); border-radius: 8px; color: var(--text); font-size: .82rem; font-weight: 700; font-family: 'Josefin Sans', sans-serif; cursor: pointer; display: flex; align-items: center; gap: .6rem; padding: 0 .85rem; transition: background .18s, color .18s, border-color .18s; letter-spacing: .04em; }
+    .a11y-btn:hover, .a11y-btn:focus { background: var(--gold); color: var(--dark); border-color: var(--gold); outline: 2px solid var(--gold); outline-offset: 2px; }
+    .a11y-btn[aria-pressed="true"] { background: var(--gold); color: var(--dark); border-color: var(--gold); }
     .a11y-btn__icon { font-size: 1rem; flex-shrink: 0; }
-
-    /* Botão gatilho — símbolo ♿ */
-    .a11y-trigger {
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      background: var(--gold);
-      border: none;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 16px rgba(242,177,56,.45);
-      transition: transform .2s, box-shadow .2s;
-      flex-shrink: 0;
-    }
-    .a11y-trigger:hover,
-    .a11y-trigger:focus {
-      transform: scale(1.1);
-      box-shadow: 0 6px 24px rgba(242,177,56,.6);
-      outline: 3px solid var(--white);
-      outline-offset: 2px;
-    }
+    .a11y-trigger { width: 52px; height: 52px; border-radius: 50%; background: var(--gold); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(242,177,56,.45); transition: transform .2s, box-shadow .2s; flex-shrink: 0; }
+    .a11y-trigger:hover, .a11y-trigger:focus { transform: scale(1.1); box-shadow: 0 6px 24px rgba(242,177,56,.6); outline: 3px solid var(--white); outline-offset: 2px; }
     .a11y-trigger svg { width: 28px; height: 28px; fill: var(--dark); }
 
     /* ── MODO ALTO CONTRASTE ─────────────────────────────────── */
-    body.high-contrast {
-      --gold:  #ffff00;
-      --dark:  #000000;
-      --dark2: #0a0a0a;
-      --text:  #ffffff;
-      --muted: #ffffff;
-      --white: #ffffff;
-      background: #000 !important;
-      color: #fff !important;
-    }
+    body.high-contrast { --gold: #ffff00; --dark: #000000; --dark2: #0a0a0a; --text: #ffffff; --muted: #ffffff; --white: #ffffff; background: #000 !important; color: #fff !important; }
     body.high-contrast .site-header { background: #000; border-bottom: 2px solid #ffff00; }
     body.high-contrast .nav-list a { color: #ffff00; }
-    body.high-contrast .btn--gold   { background: #ffff00; color: #000; border: 2px solid #ffff00; }
+    body.high-contrast .btn--gold { background: #ffff00; color: #000; border: 2px solid #ffff00; }
     body.high-contrast .btn--outline { border-color: #ffff00; color: #ffff00; }
-    body.high-contrast .event-card,
-    body.high-contrast .review-card,
-    body.high-contrast .service-card { border: 2px solid #ffff00; }
-    body.high-contrast .form__input,
-    body.high-contrast .form__select { background: #000; border-color: #ffff00; color: #fff; }
+    body.high-contrast .event-card, body.high-contrast .review-card, body.high-contrast .service-card { border: 2px solid #ffff00; }
+    body.high-contrast .form__input, body.high-contrast .form__select { background: #000; border-color: #ffff00; color: #fff; }
     body.high-contrast .a11y-btn { border-color: #ffff00; background: #000; color: #ffff00; }
-    body.high-contrast .a11y-btn[aria-pressed="true"],
-    body.high-contrast .a11y-btn:hover { background: #ffff00; color: #000; }
-
-    /* ── Animação ────────────────────────────────────────────── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    /* O AOS substituirá essa animação se estiver no mesmo elemento, mas podemos manter para fallback */
-    .hero__content.no-aos { animation: fadeUp .9s ease both; }
+    body.high-contrast .a11y-btn[aria-pressed="true"], body.high-contrast .a11y-btn:hover { background: #ffff00; color: #000; }
 
     /* ── Responsivo ──────────────────────────────────────────── */
     @media (max-width: 768px) {
       .nav-list { display: none; }
-      .about__inner,
-      .pet__inner,
-      .booking__inner { grid-template-columns: 1fr; }
+      .about__inner, .pet__inner, .booking__inner { grid-template-columns: 1fr; }
       .pet__text { order: 0; }
       .about__img, .pet__img { height: 260px; }
       .booking__img-wrap { max-height: 320px; aspect-ratio: 4 / 3; }
@@ -693,93 +334,43 @@
   <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
 
   <aside class="a11y-widget" aria-label="Ferramentas de acessibilidade">
-
-    <div
-      class="a11y-panel"
-      id="a11y-panel"
-      role="region"
-      aria-label="Ferramentas de acessibilidade"
-      aria-hidden="true"
-    >
+    <div class="a11y-panel" id="a11y-panel" role="region" aria-label="Ferramentas de acessibilidade" aria-hidden="true">
       <p class="a11y-panel__titulo">Acessibilidade</p>
-
-      <button
-        class="a11y-btn"
-        id="btn-contraste"
-        aria-pressed="false"
-        aria-label="Ativar alto contraste"
-        onclick="toggleContraste()"
-      >
+      <button class="a11y-btn" id="btn-contraste" aria-pressed="false" aria-label="Ativar alto contraste" onclick="toggleContraste()">
         <span class="a11y-btn__icon">🌓</span> Alto Contraste
       </button>
-
-      <button
-        class="a11y-btn"
-        aria-label="Aumentar tamanho da fonte"
-        onclick="ajustarFonte(1)"
-      >
+      <button class="a11y-btn" aria-label="Aumentar tamanho da fonte" onclick="ajustarFonte(1)">
         <span class="a11y-btn__icon">A+</span> Aumentar fonte
       </button>
-
-      <button
-        class="a11y-btn"
-        aria-label="Diminuir tamanho da fonte"
-        onclick="ajustarFonte(-1)"
-      >
+      <button class="a11y-btn" aria-label="Diminuir tamanho da fonte" onclick="ajustarFonte(-1)">
         <span class="a11y-btn__icon">A−</span> Diminuir fonte
       </button>
-
-      <button
-        class="a11y-btn"
-        id="btn-idioma"
-        aria-label="Mudar idioma para inglês"
-        onclick="toggleIdioma()"
-      >
+      <button class="a11y-btn" id="btn-idioma" aria-label="Mudar idioma para inglês" onclick="toggleIdioma()">
         <span class="a11y-btn__icon">🌐</span>
         <span id="btn-idioma-texto">Português / EN</span>
       </button>
-
     </div>
-
-    <button
-      class="a11y-trigger"
-      id="a11y-trigger"
-      aria-expanded="false"
-      aria-controls="a11y-panel"
-      aria-label="Abrir ferramentas de acessibilidade"
-      onclick="togglePainel()"
-    >
+    <button class="a11y-trigger" id="a11y-trigger" aria-expanded="false" aria-controls="a11y-panel" aria-label="Abrir ferramentas de acessibilidade" onclick="togglePainel()">
       <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <circle cx="50" cy="14" r="10"/>
         <path d="M35 28 Q50 24 65 28 L68 52 H82 a4 4 0 0 1 0 8 H66 a4 4 0 0 1-4-3.5L60 42 H52 L58 66 L70 88 a4 4 0 0 1-7 4 L50 70 L37 92 a4 4 0 0 1-7-4 L42 66 L36 42 H28 a4 4 0 0 1 0-8 H34 Z"/>
       </svg>
     </button>
-
   </aside>
   <div id="a11y-anuncio" aria-live="assertive" aria-atomic="true" class="sr-only"></div>
 
   <header class="site-header" role="banner">
     <div class="container header-inner">
-
       <a href="#" class="logo-svg-wrap" aria-label="Loretto Café — página inicial">
         <svg viewBox="0 0 280 90" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Logotipo Loretto Café">
           <title>Loretto Café</title>
           <ellipse cx="194" cy="12" rx="14" ry="6" fill="none" stroke="#f2b138" stroke-width="2.5" stroke-dasharray="0"/>
           <ellipse cx="194" cy="12" rx="14" ry="6" fill="#f2b138" opacity=".18"/>
-          <text x="8" y="58"
-            font-family="'Smooch', 'Dancing Script', Georgia, cursive"
-            font-size="62"
-            fill="#1a1008"
-            letter-spacing="-1">loretto</text>
+          <text x="8" y="58" font-family="'Smooch', 'Dancing Script', Georgia, cursive" font-size="62" fill="#1a1008" letter-spacing="-1">loretto</text>
           <line x1="8" y1="66" x2="232" y2="66" stroke="#1a1008" stroke-width="1.2" opacity=".3"/>
-          <text x="8" y="84"
-            font-family="'Josefin Sans', Arial, sans-serif"
-            font-size="9.5"
-            fill="#1a1008"
-            letter-spacing="4">A SANTA CASA DO CAFÉ</text>
+          <text x="8" y="84" font-family="'Josefin Sans', Arial, sans-serif" font-size="9.5" fill="#1a1008" letter-spacing="4">A SANTA CASA DO CAFÉ</text>
         </svg>
       </a>
-
       <nav aria-label="Navegação principal">
         <ul class="nav-list" role="list">
           <li><a href="#servicos"     id="nav-servicos">Serviços</a></li>
@@ -789,17 +380,16 @@
           <li><a href="#depoimentos"  id="nav-avaliacoes">Avaliações</a></li>
         </ul>
       </nav>
-
     </div>
   </header>
 
   <main id="conteudo-principal">
 
+    <!-- HERO — ✅ FRAMEWORK: AOS fade-up -->
     <section class="hero" aria-labelledby="hero-titulo">
       <div class="container">
         <div class="hero__content" data-aos="fade-up">
           <span class="hero__eyebrow">Loretto Café · Bourbon · Gourmet · Premium</span>
-
           <h1 id="hero-titulo" class="hero__title">Loretto Café</h1>
           <p id="hero-subtitulo" class="hero__subtitle">A Santa Casa do Café</p>
           <p id="hero-desc" class="hero__desc">
@@ -807,266 +397,124 @@
             um clique, você pode saborear nossos produtos no conforto do seu lar.
           </p>
           <div class="hero__actions">
-            <a href="https://www.loja.loretto.com.br/" target="_blank" rel="noopener" class="btn btn--gold" id="hero-btn1">
-              Desfrute de nossos produtos
-            </a>
+            <a href="https://www.loja.loretto.com.br/" target="_blank" rel="noopener" class="btn btn--gold" id="hero-btn1">Desfrute de nossos produtos</a>
             <a href="#agendamentos" class="btn btn--outline" id="hero-btn2">Fazer reserva</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="servicos" class="services" aria-labelledby="servicos-titulo">
+    <!-- SERVIÇOS — ✅ FRAMEWORK: AOS fade-up -->
+    <section id="servicos" class="services" aria-labelledby="servicos-titulo" data-aos="fade-up">
       <div class="container">
         <span class="section-label" aria-hidden="true">O que oferecemos</span>
-        <h2 id="servicos-titulo" class="section-title" >
-          <span id="sec-servicos">Desfrute de nossos produtos</span>
-        </h2>
-
+        <h2 id="servicos-titulo" class="section-title"><span id="sec-servicos">Desfrute de nossos produtos</span></h2>
         <div class="services-grid">
-
           <article class="service-card">
-            <svg class="service-card__icon" aria-hidden="true" viewBox="0 0 810 810" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path d="M138 176v560h152v-58h242v58h137V176h-44v69H484V326c0 3-3 6-6 6h-28v37h-26v-37h-29v37h-26v-37h-28c-3 0-6-3-6-6v-81H196V176zm148 254h252c5 0 9 2 12 5s5 9 5 14v8h37c9 0 17 3 22 9l1 1c5 6 8 13 8 21v36c0 10-4 19-10 25s-15 10-25 10h-40c-14 40-44 68-80 83-18 7-38 11-58 11s-38-4-56-11c-47-19-83-63-83-134v-59c0-5 2-9 5-12s8-5 13-5zm306 25h-37v62h32c4 0 8-2 10-4s4-8 4-12v-36c0-3-1-5-3-7l-1-1c-2-2-4-2-5-2zm-58-25H289v56c0 61 31 99 71 115 16 7 33 10 50 10s34-3 50-10c41-17 74-55 74-113v-58z"/>
-            </svg>
+            <svg class="service-card__icon" aria-hidden="true" viewBox="0 0 810 810" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M138 176v560h152v-58h242v58h137V176h-44v69H484V326c0 3-3 6-6 6h-28v37h-26v-37h-29v37h-26v-37h-28c-3 0-6-3-6-6v-81H196V176zm148 254h252c5 0 9 2 12 5s5 9 5 14v8h37c9 0 17 3 22 9l1 1c5 6 8 13 8 21v36c0 10-4 19-10 25s-15 10-25 10h-40c-14 40-44 68-80 83-18 7-38 11-58 11s-38-4-56-11c-47-19-83-63-83-134v-59c0-5 2-9 5-12s8-5 13-5zm306 25h-37v62h32c4 0 8-2 10-4s4-8 4-12v-36c0-3-1-5-3-7l-1-1c-2-2-4-2-5-2zm-58-25H289v56c0 61 31 99 71 115 16 7 33 10 50 10s34-3 50-10c41-17 74-55 74-113v-58z"/></svg>
             <div>
               <h3 class="service-card__title" id="svc1-titulo">Locação de Máquinas</h3>
               <p class="service-card__desc" id="svc1-desc">Desfrute de um café excepcional com nossas máquinas de café espresso de alta qualidade.</p>
             </div>
           </article>
-
           <article class="service-card">
-            <svg class="service-card__icon" aria-hidden="true" viewBox="0 0 810 810" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path d="M373 32c-9 0-16 7-16 16v16c0 4 1 8 4 11l61 77v27H130c-9 0-16 7-16 16v567c0 9 7 16 16 16h502c9 0 16-7 16-16V535h32c9 0 16-7 16-16V421c0-9-7-16-16-16H454v-44l29-53h68c3 0 5-1 7-2l24-12c10 6 22 7 32 2l16-8c14-7 21-22 18-37s-16-25-31-25c-5 0-10 1-14 3l-16 8c-10 5-17 15-18 27l-20 10h-47l32-57c1-2 2-5 2-8V194h65c2 0 5-1 7-2l23-12c10 6 22 7 32 2l17-8c13-7 20-22 17-37s-16-25-31-24c-5 0-10 1-15 3l-16 8c-10 5-17 15-18 27l-20 10h-61v-10l61-77c2-3 4-7 4-11V48c0-9-7-16-16-16zm121 33h169l-52 65h-65zm61 97h48v13l-48 87zm-164 213h210v65H391zm-197 4c9 0 16 7 16 16s-7 16-16 16-16-7-16-16 7-16 16-16zm49 0c9 0 16 7 16 16s-7 16-16 16-16-7-16-16 7-16 16-16zm48 0c9 0 16 7 16 16s-7 16-16 16-16-7-16-16 7-16 16-16zm49 0c9 0 16 7 16 16s-7 16-16 16-16-7-16-16 7-16 16-16zm-146 49h81v32h-81zm97 0h81v32h-81z"/>
-            </svg>
+            <svg class="service-card__icon" aria-hidden="true" viewBox="0 0 810 810" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M373 32c-9 0-16 7-16 16v16c0 4 1 8 4 11l61 77v27H130c-9 0-16 7-16 16v567c0 9 7 16 16 16h502c9 0 16-7 16-16V535h32c9 0 16-7 16-16V421c0-9-7-16-16-16H454v-44l29-53h68c3 0 5-1 7-2l24-12c10 6 22 7 32 2l16-8c14-7 21-22 18-37s-16-25-31-25c-5 0-10 1-14 3l-16 8c-10 5-17 15-18 27l-20 10h-47l32-57c1-2 2-5 2-8V194h65c2 0 5-1 7-2l23-12c10 6 22 7 32 2l17-8c13-7 20-22 17-37s-16-25-31-24c-5 0-10 1-15 3l-16 8c-10 5-17 15-18 27l-20 10h-61v-10l61-77c2-3 4-7 4-11V48c0-9-7-16-16-16zm121 33h169l-52 65h-65zm61 97h48v13l-48 87zm-164 213h210v65H391zm-197 4c9 0 16 7 16 16s-7 16-16 16-16-7-16-16 7-16 16-16zm49 0c9 0 16 7 16 16s-7 16-16 16-16-7-16-16 7-16 16-16zm48 0c9 0 16 7 16 16s-7 16-16 16-16-7-16-16 7-16 16-16zm49 0c9 0 16 7 16 16s-7 16-16 16-16-7-16-16 7-16 16-16zm-146 49h81v32h-81zm97 0h81v32h-81z"/></svg>
             <div>
               <h3 class="service-card__title" id="svc2-titulo">Torrefação Personalizada</h3>
               <p class="service-card__desc" id="svc2-desc">Aprenda os segredos da torrefação de café com nossos especialistas — torre seu próprio café conosco.</p>
             </div>
           </article>
-
           <article class="service-card">
-            <svg class="service-card__icon" aria-hidden="true" viewBox="0 0 810 810" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path d="M94 54h55v14c0 7 6 13 13 13s13-6 13-13V54h94v14c0 7 6 13 13 13s13-6 13-13V54h95v14c0 7 6 13 13 13s13-6 13-13V54h94v14c0 7 6 13 13 13s13-6 13-13V54h95v14c0 7 6 13 13 13s13-6 13-13V54h54c15 0 27 12 27 27v27H67V81c0-15 12-27 27-27zm621 472h-61c-15-16-36-27-60-27s-45 11-60 27h-48c0-45-36-81-81-81s-81 36-81 81h-48c-15-16-36-27-60-27s-45 11-60 27H94c-15 0-27-12-27-27V135h675v364c0 15-12 27-27 27z"/>
-            </svg>
+            <svg class="service-card__icon" aria-hidden="true" viewBox="0 0 810 810" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M94 54h55v14c0 7 6 13 13 13s13-6 13-13V54h94v14c0 7 6 13 13 13s13-6 13-13V54h95v14c0 7 6 13 13 13s13-6 13-13V54h94v14c0 7 6 13 13 13s13-6 13-13V54h95v14c0 7 6 13 13 13s13-6 13-13V54h54c15 0 27 12 27 27v27H67V81c0-15 12-27 27-27zm621 472h-61c-15-16-36-27-60-27s-45 11-60 27h-48c0-45-36-81-81-81s-81 36-81 81h-48c-15-16-36-27-60-27s-45 11-60 27H94c-15 0-27-12-27-27V135h675v364c0 15-12 27-27 27z"/></svg>
             <div>
               <h3 class="service-card__title" id="svc3-titulo">Espaço para Eventos</h3>
               <p class="service-card__desc" id="svc3-desc">Nosso espaço para eventos é perfeito para reuniões, comemorações e muito mais.</p>
             </div>
           </article>
-
           <article class="service-card">
-            <svg class="service-card__icon" aria-hidden="true" viewBox="0 0 810 810" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path d="M288 65C135 65 51 202 51 295c0 76 72 109 141 109C331 404 428 277 428 173 428 98 356 65 288 65zm372 0C507 65 424 202 424 295c0 76 72 109 140 109C703 404 800 277 800 173 800 98 728 65 660 65zM477 488l80 60c-71 68-201 116-307 104a535 535 0 01-150-40A538 538 0 0110 489H2c1 4 2 9 3 13a541 541 0 00200 314c126 8 241-30 328-103l35 98 51-251-242 1z"/>
-            </svg>
+            <svg class="service-card__icon" aria-hidden="true" viewBox="0 0 810 810" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M288 65C135 65 51 202 51 295c0 76 72 109 141 109C331 404 428 277 428 173 428 98 356 65 288 65zm372 0C507 65 424 202 424 295c0 76 72 109 140 109C703 404 800 277 800 173 800 98 728 65 660 65zM477 488l80 60c-71 68-201 116-307 104a535 535 0 01-150-40A538 538 0 0110 489H2c1 4 2 9 3 13a541 541 0 00200 314c126 8 241-30 328-103l35 98 51-251-242 1z"/></svg>
             <div>
               <h3 class="service-card__title" id="svc4-titulo">Pedidos via iFood</h3>
               <p class="service-card__desc" id="svc4-desc">Nosso delivery rápido e confiável garante que você aproveite nossos produtos no conforto do seu lar.</p>
             </div>
           </article>
-
         </div>
       </div>
     </section>
 
-    <section id="sobre" class="about" aria-labelledby="sobre-titulo">
+    <!-- SOBRE — ✅ FRAMEWORK: AOS fade-right -->
+    <section id="sobre" class="about" aria-labelledby="sobre-titulo" data-aos="fade-right">
       <div class="container">
-        <div class="about__inner" data-aos="fade-right">
-
-          <img
-            class="about__img"
-            src="https://loretto.com.br/wp-content/uploads/2023/05/Fachada-Loja-Loretto-1024x1024.png"
-            alt="Fachada da loja Loretto Café com letreiro dourado e ambiente externo da cafeteria"
-            width="800"
-            height="800"
-            loading="lazy"
-          />
-
+        <div class="about__inner">
+          <img class="about__img" src="https://loretto.com.br/wp-content/uploads/2023/05/Fachada-Loja-Loretto-1024x1024.png" alt="Fachada da loja Loretto Café com letreiro dourado e ambiente externo da cafeteria" width="800" height="800" loading="lazy" />
           <div class="about__text">
             <span class="section-label" id="sobre-label" aria-hidden="true">Nossa história</span>
-            <h2 id="sobre-titulo">
-              Da paixão pelo café à excelência na experiência: a história da Loretto.
-            </h2>
-            <p id="sobre-p1">
-              Fundada em abril de 2010 na cidade de Espírito Santo do Pinhal, estado de
-              São Paulo, a <strong>Loretto Café</strong> nasceu da paixão pelo café e do
-              desejo de oferecer aos clientes uma experiência única e inesquecível.
-              Localizado em um município com longa tradição na produção e recebimento de
-              café, o <strong>Loretto Café</strong> se tornou rapidamente um ponto de
-              referência para os amantes da bebida.
-            </p>
-            <p id="sobre-p2">
-              Com um foco em qualidade, a Loretto Café <strong>seleciona
-              cuidadosamente os melhores grãos de café</strong> e trabalha com torra
-              artesanal para garantir que cada xícara seja perfeita. Além disso, a
-              cafeteria oferece uma variedade de produtos deliciosos, desde pães e
-              bolos caseiros até opções salgadas.
-            </p>
-            <p id="sobre-p3">
-              Ao longo dos anos, o Loretto Café cresceu e expandiu seus negócios,
-              tornando-se uma das cafeterias mais reconhecidas da região. A
-              <strong>dedicação</strong> à <strong>qualidade</strong>, a
-              <strong>paixão</strong> pelo café e o <strong>compromisso</strong> com a
-              satisfação do cliente <strong>são os pilares</strong> que sustentam o
-              sucesso do Loretto Café até hoje.
-            </p>
-            <a href="https://www.loja.loretto.com.br/" target="_blank" rel="noopener" class="btn btn--gold" style="margin-top:1rem" id="sobre-btn">
-              Desfrute de nossos produtos
-            </a>
+            <h2 id="sobre-titulo">Da paixão pelo café à excelência na experiência: a história da Loretto.</h2>
+            <p id="sobre-p1">Fundada em abril de 2010 na cidade de Espírito Santo do Pinhal, estado de São Paulo, a <strong>Loretto Café</strong> nasceu da paixão pelo café e do desejo de oferecer aos clientes uma experiência única e inesquecível. Localizado em um município com longa tradição na produção e recebimento de café, o <strong>Loretto Café</strong> se tornou rapidamente um ponto de referência para os amantes da bebida.</p>
+            <p id="sobre-p2">Com um foco em qualidade, a Loretto Café <strong>seleciona cuidadosamente os melhores grãos de café</strong> e trabalha com torra artesanal para garantir que cada xícara seja perfeita. Além disso, a cafeteria oferece uma variedade de produtos deliciosos, desde pães e bolos caseiros até opções salgadas.</p>
+            <p id="sobre-p3">Ao longo dos anos, o Loretto Café cresceu e expandiu seus negócios, tornando-se uma das cafeterias mais reconhecidas da região. A <strong>dedicação</strong> à <strong>qualidade</strong>, a <strong>paixão</strong> pelo café e o <strong>compromisso</strong> com a satisfação do cliente <strong>são os pilares</strong> que sustentam o sucesso do Loretto Café até hoje.</p>
+            <a href="https://www.loja.loretto.com.br/" target="_blank" rel="noopener" class="btn btn--gold" style="margin-top:1rem" id="sobre-btn">Desfrute de nossos produtos</a>
           </div>
-
         </div>
       </div>
     </section>
 
-    <section id="pet" class="pet" aria-labelledby="pet-titulo">
+    <!-- PET — ✅ FRAMEWORK: AOS fade-left -->
+    <section id="pet" class="pet" aria-labelledby="pet-titulo" data-aos="fade-left">
       <div class="container">
-        <div class="pet__inner" data-aos="fade-left">
-
+        <div class="pet__inner">
           <div class="pet__text">
             <span class="section-label" id="pet-label" aria-hidden="true">Bem-vindos, peludinhos!</span>
             <h2 id="pet-titulo">Café Loretto Pet Friendly</h2>
-            <p id="pet-p1">
-              Tem muitos lugares que vamos e que os nossos peludinhos não podem entrar,
-              e isso é muito chato, não é mesmo? Agora imagine um lugar onde você pode
-              curtir momentos de lazer ou de trabalho, sem ter que deixar de lado o seu
-              <strong>UAUmigo</strong>.
-            </p>
-            <p id="pet-p2">
-              Curta momentos de lazer e descontração tomando um cafezinho e saboreando
-              as delícias da <strong>Loretto Cafeteria</strong>, sem precisar deixar de
-              fora seu <strong>melhor amigo</strong>, pois aqui seu peludo pode ficar
-              bem juntinho, se socializando e se divertindo em um ambiente
-              <strong>pet friendly</strong>.
-            </p>
+            <p id="pet-p1">Tem muitos lugares que vamos e que os nossos peludinhos não podem entrar, e isso é muito chato, não é mesmo? Agora imagine um lugar onde você pode curtir momentos de lazer ou de trabalho, sem ter que deixar de lado o seu <strong>UAUmigo</strong>.</p>
+            <p id="pet-p2">Curta momentos de lazer e descontração tomando um cafezinho e saboreando as delícias da <strong>Loretto Cafeteria</strong>, sem precisar deixar de fora seu <strong>melhor amigo</strong>, pois aqui seu peludo pode ficar bem juntinho, se socializando e se divertindo em um ambiente <strong>pet friendly</strong>.</p>
           </div>
-
-          <img
-            class="pet__img"
-            src="https://loretto.com.br/wp-content/uploads/2023/06/loretto-pet-friendly.webp"
-            alt="Cachorro pequeno e simpático sentado em mesa da área pet friendly da Loretto Café"
-            width="800"
-            height="800"
-            loading="lazy"
-          />
-
+          <img class="pet__img" src="https://loretto.com.br/wp-content/uploads/2023/06/loretto-pet-friendly.webp" alt="Cachorro pequeno e simpático sentado em mesa da área pet friendly da Loretto Café" width="800" height="800" loading="lazy" />
         </div>
       </div>
     </section>
 
-    <section id="espacos" class="events" aria-labelledby="espacos-titulo">
+    <!-- EVENTOS — ✅ FRAMEWORK: AOS fade-up -->
+    <section id="espacos" class="events" aria-labelledby="espacos-titulo" data-aos="fade-up">
       <div class="container">
         <span class="section-label" id="espacos-label" aria-hidden="true">Reserve seu momento</span>
         <h2 id="espacos-titulo" class="section-title">Conheça nossas opções de espaços para Eventos</h2>
-
         <div class="events-grid">
-
-          <article class="event-card">
-            <img class="event-card__img" src="https://loretto.com.br/wp-content/uploads/2023/05/icone_evento_batizado.jpg" alt="Família reunida em cerimônia de batizado na Loretto Café" width="350" height="350" loading="lazy" />
-            <div class="event-card__body">
-              <h3 class="event-card__title" id="evt1-titulo">Batizados</h3>
-              <p class="event-card__desc" id="evt1-desc">Nosso espaço para batizados é o cenário perfeito para registrar momentos incríveis e eternizar essa data tão especial em família.</p>
-            </div>
-          </article>
-
-          <article class="event-card">
-            <img class="event-card__img" src="https://loretto.com.br/wp-content/uploads/2023/05/icone_evento_reuniao.jpg" alt="Pessoas em reunião de negócios em ambiente aconchegante da Loretto Café" width="350" height="350" loading="lazy" />
-            <div class="event-card__body">
-              <h3 class="event-card__title" id="evt2-titulo">Reuniões</h3>
-              <p class="event-card__desc" id="evt2-desc">Conheça nosso espaço exclusivo para reuniões, perfeito para uma conversa produtiva em um ambiente tranquilo e confortável com um café Gourmet.</p>
-            </div>
-          </article>
-
-          <article class="event-card">
-            <img class="event-card__img" src="https://loretto.com.br/wp-content/uploads/2023/05/icone_evento_celebracoes.jpg" alt="Grupo de amigos celebrando confraternização com taças na Loretto Café" width="350" height="350" loading="lazy" />
-            <div class="event-card__body">
-              <h3 class="event-card__title" id="evt3-titulo">Confraternizações</h3>
-              <p class="event-card__desc" id="evt3-desc">Datas especiais é na Loretto Café. Oferecemos um espaço charmoso e acolhedor para celebrar momentos importantes ao lado de pessoas queridas.</p>
-            </div>
-          </article>
-
-          <article class="event-card">
-            <img class="event-card__img" src="https://loretto.com.br/wp-content/uploads/2023/05/icone_evento_corporativo.jpg" alt="Profissionais em evento corporativo com apresentação e café gourmet" width="350" height="350" loading="lazy" />
-            <div class="event-card__body">
-              <h3 class="event-card__title" id="evt4-titulo">Corporativo</h3>
-              <p class="event-card__desc" id="evt4-desc">Com uma atmosfera agradável e tranquila, o nosso espaço é ideal para reuniões de negócios, apresentações e eventos corporativos.</p>
-            </div>
-          </article>
-
+          <article class="event-card"><img class="event-card__img" src="https://loretto.com.br/wp-content/uploads/2023/05/icone_evento_batizado.jpg" alt="Família reunida em cerimônia de batizado na Loretto Café" width="350" height="350" loading="lazy" /><div class="event-card__body"><h3 class="event-card__title" id="evt1-titulo">Batizados</h3><p class="event-card__desc" id="evt1-desc">Nosso espaço para batizados é o cenário perfeito para registrar momentos incríveis e eternizar essa data tão especial em família.</p></div></article>
+          <article class="event-card"><img class="event-card__img" src="https://loretto.com.br/wp-content/uploads/2023/05/icone_evento_reuniao.jpg" alt="Pessoas em reunião de negócios em ambiente aconchegante da Loretto Café" width="350" height="350" loading="lazy" /><div class="event-card__body"><h3 class="event-card__title" id="evt2-titulo">Reuniões</h3><p class="event-card__desc" id="evt2-desc">Conheça nosso espaço exclusivo para reuniões, perfeito para uma conversa produtiva em um ambiente tranquilo e confortável com um café Gourmet.</p></div></article>
+          <article class="event-card"><img class="event-card__img" src="https://loretto.com.br/wp-content/uploads/2023/05/icone_evento_celebracoes.jpg" alt="Grupo de amigos celebrando confraternização com taças na Loretto Café" width="350" height="350" loading="lazy" /><div class="event-card__body"><h3 class="event-card__title" id="evt3-titulo">Confraternizações</h3><p class="event-card__desc" id="evt3-desc">Datas especiais é na Loretto Café. Oferecemos um espaço charmoso e acolhedor para celebrar momentos importantes ao lado de pessoas queridas.</p></div></article>
+          <article class="event-card"><img class="event-card__img" src="https://loretto.com.br/wp-content/uploads/2023/05/icone_evento_corporativo.jpg" alt="Profissionais em evento corporativo com apresentação e café gourmet" width="350" height="350" loading="lazy" /><div class="event-card__body"><h3 class="event-card__title" id="evt4-titulo">Corporativo</h3><p class="event-card__desc" id="evt4-desc">Com uma atmosfera agradável e tranquila, o nosso espaço é ideal para reuniões de negócios, apresentações e eventos corporativos.</p></div></article>
         </div>
       </div>
     </section>
 
-    <section id="agendamentos" class="booking" aria-labelledby="booking-titulo">
+    <!-- AGENDAMENTOS — ✅ FRAMEWORK: AOS fade-up + SweetAlert2 no submit -->
+    <section id="agendamentos" class="booking" aria-labelledby="booking-titulo" data-aos="fade-up">
       <div class="container">
         <div class="booking__inner">
-
           <div class="booking__text">
             <span class="section-label" id="booking-label" aria-hidden="true">Fale conosco</span>
-            <h2 id="booking-titulo">
-              Faça sua reserva e desfrute de nossos ambientes e serviços!
-            </h2>
-            <p id="booking-desc">
-              Entre em contato conosco e obtenha mais detalhes de como tornar
-              seu evento familiar ou corporativo um momento inesquecível.
-            </p>
-
+            <h2 id="booking-titulo">Faça sua reserva e desfrute de nossos ambientes e serviços!</h2>
+            <p id="booking-desc">Entre em contato conosco e obtenha mais detalhes de como tornar seu evento familiar ou corporativo um momento inesquecível.</p>
             <div id="form-status" aria-live="polite" aria-atomic="true" class="sr-only"></div>
-
             <form class="form" id="reserva-form" onsubmit="handleSubmit(event)">
-
               <div class="form__row">
                 <div class="form__group">
                   <label class="form__label" for="nome"><span id="label-nome">Nome completo</span> <span aria-hidden="true">*</span></label>
-                  <input
-                    class="form__input"
-                    type="text"
-                    id="nome"
-                    name="nome"
-                    placeholder="Digite o nome completo..."
-                    required
-                    aria-required="true"
-                    aria-describedby="nome-erro"
-                    autocomplete="name"
-                    minlength="3"
-                  />
+                  <input class="form__input" type="text" id="nome" name="nome" placeholder="Digite o nome completo..." required aria-required="true" aria-describedby="nome-erro" autocomplete="name" minlength="3" />
                   <span id="nome-erro" class="form__erro" aria-live="polite"></span>
                 </div>
-
                 <div class="form__group">
                   <label class="form__label" for="email"><span id="label-email">E-mail</span> <span aria-hidden="true">*</span></label>
-                  <input
-                    class="form__input"
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="contato@email.com.br"
-                    required
-                    aria-required="true"
-                    aria-describedby="email-erro"
-                    autocomplete="email"
-                  />
+                  <input class="form__input" type="email" id="email" name="email" placeholder="contato@email.com.br" required aria-required="true" aria-describedby="email-erro" autocomplete="email" />
                   <span id="email-erro" class="form__erro" aria-live="polite"></span>
                 </div>
               </div>
-
               <div class="form__group">
                 <label class="form__label" for="telefone"><span id="label-telefone">Telefone</span> <span aria-hidden="true">*</span></label>
-                <input
-                  class="form__input"
-                  type="tel"
-                  id="telefone"
-                  name="telefone"
-                  placeholder="(19) 99999-0000"
-                  required
-                  aria-required="true"
-                  aria-describedby="telefone-erro"
-                  autocomplete="tel"
-                  pattern="[\d\s\(\)\-\+]{8,20}"
-                />
+                <input class="form__input" type="tel" id="telefone" name="telefone" placeholder="(19) 99999-0000" required aria-required="true" aria-describedby="telefone-erro" autocomplete="tel" pattern="[\d\s\(\)\-\+]{8,20}" />
                 <span id="telefone-erro" class="form__erro" aria-live="polite"></span>
               </div>
-
               <div class="form__group">
                 <label class="form__label" for="tipo-evento"><span id="label-evento">Tipo de Evento</span></label>
                 <select class="form__select" id="tipo-evento" name="tipo-evento">
@@ -1081,132 +529,54 @@
                 </select>
                 <span class="form__hint">Escolha as opções com ou sem Buffet</span>
               </div>
-
               <div class="form__group">
-                <label class="form__label" for="horas">
-                  <span id="label-horas">Quantidade de Horas:</span> <strong id="horas-valor">1</strong>
-                </label>
-                <input
-                  class="form__range"
-                  type="range"
-                  id="horas"
-                  name="horas"
-                  min="1"
-                  max="8"
-                  step="1"
-                  value="1"
-                  aria-valuemin="1"
-                  aria-valuemax="8"
-                  aria-valuenow="1"
-                  oninput="document.getElementById('horas-valor').textContent=this.value; this.setAttribute('aria-valuenow',this.value)"
-                />
+                <label class="form__label" for="horas"><span id="label-horas">Quantidade de Horas:</span> <strong id="horas-valor">1</strong></label>
+                <input class="form__range" type="range" id="horas" name="horas" min="1" max="8" step="1" value="1" aria-valuemin="1" aria-valuemax="8" aria-valuenow="1" oninput="document.getElementById('horas-valor').textContent=this.value; this.setAttribute('aria-valuenow',this.value)" />
               </div>
-
-              <button type="submit" class="btn btn--gold form__submit" id="btn-agendar">
-                Pedir Agendamento
-              </button>
-
+              <button type="submit" class="btn btn--gold form__submit" id="btn-agendar">Pedir Agendamento</button>
             </form>
           </div>
-
           <div class="booking__img-wrap">
-            <img
-              class="booking__img"
-              src="https://loretto.com.br/wp-content/uploads/2023/05/mulher-loira-tomando-cafe-no-copo-descartavel.png"
-              alt="Mulher sorrindo enquanto toma café em copo descartável da Loretto Café"
-              width="768"
-              height="1024"
-              loading="lazy"
-            />
+            <img class="booking__img" src="https://loretto.com.br/wp-content/uploads/2023/05/mulher-loira-tomando-cafe-no-copo-descartavel.png" alt="Mulher sorrindo enquanto toma café em copo descartável da Loretto Café" width="768" height="1024" loading="lazy" />
           </div>
-
         </div>
       </div>
     </section>
 
-    <section class="gallery" aria-labelledby="galeria-titulo">
+    <!-- GALERIA — ✅ FRAMEWORK: AOS fade-up -->
+    <section class="gallery" aria-labelledby="galeria-titulo" data-aos="fade-up">
       <div class="container">
         <span class="section-label" id="galeria-label" aria-hidden="true">Nossa galeria</span>
         <h2 id="galeria-titulo" class="section-title"><span id="sec-galeria">Momentos Loretto</span></h2>
-
         <div class="gallery-grid">
-          <img src="https://loretto.com.br/wp-content/uploads/2023/05/fachada-loja-praca.jpg"                              alt="Fachada nova da Loretto Café na praça" loading="lazy" width="400" height="400" />
-          <img src="https://loretto.com.br/wp-content/uploads/2023/05/cafe-coado-metodo-V60.jpg"                           alt="Café coado pelo método V60" loading="lazy" width="400" height="400" />
-          <img src="https://loretto.com.br/wp-content/uploads/2023/05/ambiente-interno-1.jpg"                              alt="Ambiente interno aconchegante da Loretto Café" loading="lazy" width="400" height="400" />
+          <img src="https://loretto.com.br/wp-content/uploads/2023/05/fachada-loja-praca.jpg" alt="Fachada nova da Loretto Café na praça" loading="lazy" width="400" height="400" />
+          <img src="https://loretto.com.br/wp-content/uploads/2023/05/cafe-coado-metodo-V60.jpg" alt="Café coado pelo método V60" loading="lazy" width="400" height="400" />
+          <img src="https://loretto.com.br/wp-content/uploads/2023/05/ambiente-interno-1.jpg" alt="Ambiente interno aconchegante da Loretto Café" loading="lazy" width="400" height="400" />
           <img src="https://loretto.com.br/wp-content/uploads/2023/05/cafe-espresso-com-bolo-de-cenoura-e-cobertura-de-chocolate.jpg" alt="Cappuccino servido com bolo de cenoura e cobertura de chocolate" loading="lazy" width="400" height="400" />
-          <img src="https://loretto.com.br/wp-content/uploads/2023/05/Espaco-Kids-Loretto-03.jpg"                          alt="Espaço Kids com playground para crianças" loading="lazy" width="400" height="400" />
-          <img src="https://loretto.com.br/wp-content/uploads/2023/05/cafe-espresso-com-bolo-de-chocolate.jpg"             alt="Espresso servido com bolo de chocolate" loading="lazy" width="400" height="400" />
-          <img src="https://loretto.com.br/wp-content/uploads/2023/05/balcao-espresso-1.jpg"                               alt="Balcão de espresso da Loretto Café" loading="lazy" width="400" height="400" />
-          <img src="https://loretto.com.br/wp-content/uploads/2023/05/Torta-de-Ferrero-Rocher.jpg"                         alt="Torta de Ferrero Rocher decorada" loading="lazy" width="400" height="400" />
-          <img src="https://loretto.com.br/wp-content/uploads/2023/05/cafe-espresso-com-pao-de-queijo-1.jpg"               alt="Café espresso servido com pão de queijo mineiro" loading="lazy" width="400" height="400" />
-          <img src="https://loretto.com.br/wp-content/uploads/2023/05/capuccino-loretto-com-lanche-especial-da-casa.jpg"   alt="Cappuccino Loretto com lanche especial da casa" loading="lazy" width="400" height="400" />
-          <img src="https://loretto.com.br/wp-content/uploads/2023/05/Torta-de-Uva.jpg"                                    alt="Torta de uva com decoração artesanal" loading="lazy" width="400" height="400" />
-          <img src="https://loretto.com.br/wp-content/uploads/2023/05/doces-loretto.jpg"                                   alt="Variedade de doces artesanais da Loretto Café" loading="lazy" width="400" height="400" />
+          <img src="https://loretto.com.br/wp-content/uploads/2023/05/Espaco-Kids-Loretto-03.jpg" alt="Espaço Kids com playground para crianças" loading="lazy" width="400" height="400" />
+          <img src="https://loretto.com.br/wp-content/uploads/2023/05/cafe-espresso-com-bolo-de-chocolate.jpg" alt="Espresso servido com bolo de chocolate" loading="lazy" width="400" height="400" />
+          <img src="https://loretto.com.br/wp-content/uploads/2023/05/balcao-espresso-1.jpg" alt="Balcão de espresso da Loretto Café" loading="lazy" width="400" height="400" />
+          <img src="https://loretto.com.br/wp-content/uploads/2023/05/Torta-de-Ferrero-Rocher.jpg" alt="Torta de Ferrero Rocher decorada" loading="lazy" width="400" height="400" />
+          <img src="https://loretto.com.br/wp-content/uploads/2023/05/cafe-espresso-com-pao-de-queijo-1.jpg" alt="Café espresso servido com pão de queijo mineiro" loading="lazy" width="400" height="400" />
+          <img src="https://loretto.com.br/wp-content/uploads/2023/05/capuccino-loretto-com-lanche-especial-da-casa.jpg" alt="Cappuccino Loretto com lanche especial da casa" loading="lazy" width="400" height="400" />
+          <img src="https://loretto.com.br/wp-content/uploads/2023/05/Torta-de-Uva.jpg" alt="Torta de uva com decoração artesanal" loading="lazy" width="400" height="400" />
+          <img src="https://loretto.com.br/wp-content/uploads/2023/05/doces-loretto.jpg" alt="Variedade de doces artesanais da Loretto Café" loading="lazy" width="400" height="400" />
         </div>
       </div>
     </section>
 
-    <section id="depoimentos" class="reviews" aria-labelledby="reviews-titulo">
-      <div class="container" data-aos="zoom-in">
+    <!-- DEPOIMENTOS — ✅ FRAMEWORK: AOS zoom-in -->
+    <section id="depoimentos" class="reviews" aria-labelledby="reviews-titulo" data-aos="zoom-in">
+      <div class="container">
         <span class="section-label" id="reviews-label" aria-hidden="true">Google Avaliações · 4,5 ★</span>
         <h2 id="reviews-titulo" class="section-title"><span id="sec-reviews">O que estão dizendo sobre nós</span></h2>
-
         <div class="reviews-grid">
-
-          <blockquote class="review-card">
-            <p class="review-card__stars" aria-label="5 de 5 estrelas">★★★★★</p>
-            <p class="review-card__text" id="rev1-texto">"Melhor café gourmet da cidade. Ótimo atendimento e conhecimento na bebida. Recomendo provar o Bourbon Amarelo! Muito top!"</p>
-            <footer>
-              <p class="review-card__author">Ricardo Marguliano</p>
-              <p class="review-card__date"><time datetime="2023-03-08" id="rev1-data">8 de março de 2023</time></p>
-            </footer>
-          </blockquote>
-
-          <blockquote class="review-card">
-            <p class="review-card__stars" aria-label="5 de 5 estrelas">★★★★★</p>
-            <p class="review-card__text" id="rev2-texto">"Ótimo atendimento, degustação excelente, cafés selecionados, safra de alta qualidade, grãos, expresso, moído, ambiente limpo e agradável. Nota 1000."</p>
-            <footer>
-              <p class="review-card__author">David Coimbra</p>
-              <p class="review-card__date"><time datetime="2023-01-23" id="rev2-data">23 de janeiro de 2023</time></p>
-            </footer>
-          </blockquote>
-
-          <blockquote class="review-card">
-            <p class="review-card__stars" aria-label="5 de 5 estrelas">★★★★★</p>
-            <p class="review-card__text" id="rev3-texto">"Próximo ao centro, local agradável e confortável. Bom atendimento, cardápio razoável."</p>
-            <footer>
-              <p class="review-card__author">Luciano Rodrigues</p>
-              <p class="review-card__date"><time datetime="2023-04-23" id="rev3-data">23 de abril de 2023</time></p>
-            </footer>
-          </blockquote>
-
-          <blockquote class="review-card">
-            <p class="review-card__stars" aria-label="5 de 5 estrelas">★★★★★</p>
-            <p class="review-card__text" id="rev4-texto">"Excelente!"</p>
-            <footer>
-              <p class="review-card__author">José Lucas Telles Barros</p>
-              <p class="review-card__date"><time datetime="2023-01-22" id="rev4-data">22 de janeiro de 2023</time></p>
-            </footer>
-          </blockquote>
-
-          <blockquote class="review-card">
-            <p class="review-card__stars" aria-label="5 de 5 estrelas">★★★★★</p>
-            <p class="review-card__text" id="rev5-texto">"Amei, porém faltou só palito 😄. Mas o lugar é top rsrs."</p>
-            <footer>
-              <p class="review-card__author">ALFENES</p>
-              <p class="review-card__date"><time datetime="2023-03-02" id="rev5-data">2 de março de 2023</time></p>
-            </footer>
-          </blockquote>
-
-          <blockquote class="review-card">
-            <p class="review-card__stars" aria-label="4 de 5 estrelas">★★★★☆</p>
-            <p class="review-card__text" id="rev6-texto">"Um lugar gostoso. Servem um bom panino. O ambiente tem espaço para crianças. Recomendo para famílias."</p>
-            <footer>
-              <p class="review-card__author">Sinésio Ragazzoni</p>
-              <p class="review-card__date"><time datetime="2023-01-29" id="rev6-data">29 de janeiro de 2023</time></p>
-            </footer>
-          </blockquote>
-
+          <blockquote class="review-card"><p class="review-card__stars" aria-label="5 de 5 estrelas">★★★★★</p><p class="review-card__text" id="rev1-texto">"Melhor café gourmet da cidade. Ótimo atendimento e conhecimento na bebida. Recomendo provar o Bourbon Amarelo! Muito top!"</p><footer><p class="review-card__author">Ricardo Marguliano</p><p class="review-card__date"><time datetime="2023-03-08" id="rev1-data">8 de março de 2023</time></p></footer></blockquote>
+          <blockquote class="review-card"><p class="review-card__stars" aria-label="5 de 5 estrelas">★★★★★</p><p class="review-card__text" id="rev2-texto">"Ótimo atendimento, degustação excelente, cafés selecionados, safra de alta qualidade, grãos, expresso, moído, ambiente limpo e agradável. Nota 1000."</p><footer><p class="review-card__author">David Coimbra</p><p class="review-card__date"><time datetime="2023-01-23" id="rev2-data">23 de janeiro de 2023</time></p></footer></blockquote>
+          <blockquote class="review-card"><p class="review-card__stars" aria-label="5 de 5 estrelas">★★★★★</p><p class="review-card__text" id="rev3-texto">"Próximo ao centro, local agradável e confortável. Bom atendimento, cardápio razoável."</p><footer><p class="review-card__author">Luciano Rodrigues</p><p class="review-card__date"><time datetime="2023-04-23" id="rev3-data">23 de abril de 2023</time></p></footer></blockquote>
+          <blockquote class="review-card"><p class="review-card__stars" aria-label="5 de 5 estrelas">★★★★★</p><p class="review-card__text" id="rev4-texto">"Excelente!"</p><footer><p class="review-card__author">José Lucas Telles Barros</p><p class="review-card__date"><time datetime="2023-01-22" id="rev4-data">22 de janeiro de 2023</time></p></footer></blockquote>
+          <blockquote class="review-card"><p class="review-card__stars" aria-label="5 de 5 estrelas">★★★★★</p><p class="review-card__text" id="rev5-texto">"Amei, porém faltou só palito 😄. Mas o lugar é top rsrs."</p><footer><p class="review-card__author">ALFENES</p><p class="review-card__date"><time datetime="2023-03-02" id="rev5-data">2 de março de 2023</time></p></footer></blockquote>
+          <blockquote class="review-card"><p class="review-card__stars" aria-label="4 de 5 estrelas">★★★★☆</p><p class="review-card__text" id="rev6-texto">"Um lugar gostoso. Servem um bom panino. O ambiente tem espaço para crianças. Recomendo para famílias."</p><footer><p class="review-card__author">Sinésio Ragazzoni</p><p class="review-card__date"><time datetime="2023-01-29" id="rev6-data">29 de janeiro de 2023</time></p></footer></blockquote>
         </div>
       </div>
     </section>
@@ -1215,333 +585,154 @@
 
   <footer class="site-footer" role="contentinfo">
     <div class="container">
-
-      <img
-        class="footer__logo"
-        src="https://loretto.com.br/wp-content/uploads/2023/05/logo-preto.png"
-        alt="Logotipo Loretto Café"
-        width="676"
-        height="300"
-        loading="lazy"
-        style="filter:invert(1) brightness(1.5); height:60px; width:auto;"
-      />
+      <img class="footer__logo" src="https://loretto.com.br/wp-content/uploads/2023/05/logo-preto.png" alt="Logotipo Loretto Café" width="676" height="300" loading="lazy" style="filter:invert(1) brightness(1.5); height:60px; width:auto;" />
       <p class="footer__tagline" id="footer-tagline">A Santa Casa do Café</p>
-
       <address class="footer__address">
         <span id="footer-endereco">Espírito Santo do Pinhal — São Paulo, Brasil</span><br />
         <a href="tel:+551936512048">(19) 3651-2048</a> ·
         <a href="https://www.loja.loretto.com.br/" target="_blank" rel="noopener">loja.loretto.com.br</a>
       </address>
-
       <nav aria-label="Links do rodapé">
         <ul class="nav-list" role="list" style="justify-content:center; margin-bottom:1.5rem; color:rgba(255,255,255,.4)">
-          <li><a href="#servicos"     style="color:rgba(255,255,255,.4)" id="fnav-servicos">Serviços</a></li>
-          <li><a href="#sobre"        style="color:rgba(255,255,255,.4)" id="fnav-sobre">Sobre</a></li>
-          <li><a href="#espacos"      style="color:rgba(255,255,255,.4)" id="fnav-espacos">Espaços</a></li>
+          <li><a href="#servicos" style="color:rgba(255,255,255,.4)" id="fnav-servicos">Serviços</a></li>
+          <li><a href="#sobre" style="color:rgba(255,255,255,.4)" id="fnav-sobre">Sobre</a></li>
+          <li><a href="#espacos" style="color:rgba(255,255,255,.4)" id="fnav-espacos">Espaços</a></li>
           <li><a href="#agendamentos" style="color:rgba(255,255,255,.4)" id="fnav-reservas">Reservas</a></li>
         </ul>
       </nav>
-
-      <p class="footer__copy">
-        &copy; <time datetime="2026">2026</time> Loretto Café. <span id="footer-copy">Todos os direitos reservados.</span>
-      </p>
-
+      <p class="footer__copy">&copy; <time datetime="2026">2026</time> Loretto Café. <span id="footer-copy">Todos os direitos reservados.</span></p>
     </div>
   </footer>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
   <script>
-    /* ✅ INICIANDO O AOS */
-    AOS.init({
-      once: true,
-      duration: 800
-    });
-
-    /* ════════════════════════════════════════════════════════
-       PAINEL DE ACESSIBILIDADE
-       ════════════════════════════════════════════════════════ */
-
-    /* ── 0. ABRIR / FECHAR PAINEL ──────────────────────────── */
+    /* ═══════════ PAINEL DE ACESSIBILIDADE ═══════════ */
     function togglePainel() {
-      const painel   = document.getElementById('a11y-panel');
-      const trigger  = document.getElementById('a11y-trigger');
-      const aberto   = painel.classList.toggle('aberto');
-
+      const painel = document.getElementById('a11y-panel');
+      const trigger = document.getElementById('a11y-trigger');
+      const aberto = painel.classList.toggle('aberto');
       trigger.setAttribute('aria-expanded', aberto);
       painel.setAttribute('aria-hidden', !aberto);
-      trigger.setAttribute('aria-label',
-        aberto ? 'Fechar ferramentas de acessibilidade' : 'Abrir ferramentas de acessibilidade'
-      );
-
-      // Foca o primeiro botão ao abrir (acessibilidade por teclado)
-      if (aberto) {
-        painel.querySelector('.a11y-btn').focus();
-      }
+      trigger.setAttribute('aria-label', aberto ? 'Fechar ferramentas de acessibilidade' : 'Abrir ferramentas de acessibilidade');
+      if (aberto) painel.querySelector('.a11y-btn').focus();
     }
-
-    // Fecha o painel ao pressionar Escape
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         const painel = document.getElementById('a11y-panel');
-        if (painel.classList.contains('aberto')) {
-          togglePainel();
-          document.getElementById('a11y-trigger').focus();
-        }
+        if (painel.classList.contains('aberto')) { togglePainel(); document.getElementById('a11y-trigger').focus(); }
       }
     });
     function toggleContraste() {
       const body = document.body;
-      const btn  = document.getElementById('btn-contraste');
+      const btn = document.getElementById('btn-contraste');
       const ativo = body.classList.toggle('high-contrast');
-
       btn.setAttribute('aria-pressed', ativo);
       btn.setAttribute('aria-label', ativo ? 'Desativar alto contraste' : 'Ativar alto contraste');
-
-      // Persiste preferência
       localStorage.setItem('loretto-contraste', ativo ? '1' : '0');
     }
-
-    /* ── 2. TAMANHO DE FONTE ───────────────────────────────── */
     let fonteBase = parseFloat(localStorage.getItem('loretto-fonte')) || 16;
+    function aplicarFonte(px) { document.documentElement.style.fontSize = px + 'px'; localStorage.setItem('loretto-fonte', px); }
+    function ajustarFonte(delta) { fonteBase = Math.min(24, Math.max(12, fonteBase + delta * 2)); aplicarFonte(fonteBase); anunciar('Tamanho da fonte: ' + fonteBase + ' pixels'); }
 
-    function aplicarFonte(px) {
-      document.documentElement.style.fontSize = px + 'px';
-      localStorage.setItem('loretto-fonte', px);
-    }
-
-    function ajustarFonte(delta) {
-      fonteBase = Math.min(24, Math.max(12, fonteBase + delta * 2));
-      aplicarFonte(fonteBase);
-
-      // Anuncia para leitores de tela
-      anunciar('Tamanho da fonte: ' + fonteBase + ' pixels');
-    }
-
-    /* ── 3. TROCA DE IDIOMA PT ↔ EN ────────────────────────── */
+    /* ═══════════ TROCA DE IDIOMA ═══════════ */
     const traducoes = {
-      /* ── Navegação ── */
-      'nav-servicos':   { pt: 'Serviços',    en: 'Services'   },
-      'nav-sobre':      { pt: 'Sobre',        en: 'About'      },
-      'nav-espacos':    { pt: 'Espaços',      en: 'Spaces'     },
-      'nav-reservas':   { pt: 'Reservas',     en: 'Bookings'   },
-      'nav-avaliacoes': { pt: 'Avaliações',   en: 'Reviews'    },
-
-      /* ── Hero ── */
-      'hero-subtitulo': { pt: 'A Santa Casa do Café', en: 'The Holy House of Coffee' },
-      'hero-desc':      { pt: 'Leve a experiência de nossa cafeteria para a sua casa — com apenas um clique, você pode saborear nossos produtos no conforto do seu lar.', en: 'Bring the coffee shop experience home — with just one click, enjoy our products in the comfort of your place.' },
-      'hero-btn1':      { pt: 'Desfrute de nossos produtos', en: 'Enjoy our products' },
-      'hero-btn2':      { pt: 'Fazer reserva',               en: 'Book a table'       },
-
-      /* ── Serviços ── */
-      'sec-servicos':  { pt: 'Desfrute de nossos produtos',  en: 'Enjoy our products'   },
-      'svc1-titulo':   { pt: 'Locação de Máquinas',          en: 'Machine Rental'       },
-      'svc1-desc':     { pt: 'Desfrute de um café excepcional com nossas máquinas de café espresso de alta qualidade.', en: 'Enjoy exceptional coffee with our high-quality espresso machines.' },
-      'svc2-titulo':   { pt: 'Torrefação Personalizada',     en: 'Custom Roasting'      },
-      'svc2-desc':     { pt: 'Aprenda os segredos da torrefação de café com nossos especialistas — torre seu próprio café conosco.', en: 'Learn coffee roasting secrets with our experts — roast your own coffee with us.' },
-      'svc3-titulo':   { pt: 'Espaço para Eventos',          en: 'Event Space'          },
-      'svc3-desc':     { pt: 'Nosso espaço para eventos é perfeito para reuniões, comemorações e muito mais.', en: 'Our event space is perfect for meetings, celebrations and much more.' },
-      'svc4-titulo':   { pt: 'Pedidos via iFood',            en: 'Orders via iFood'     },
-      'svc4-desc':     { pt: 'Nosso delivery rápido e confiável garante que você aproveite nossos produtos no conforto do seu lar.', en: 'Our fast and reliable delivery ensures you enjoy our products at home.' },
-
-      /* ── Sobre ── */
-      'sobre-label':  { pt: 'Nossa história', en: 'Our story' },
-      'sobre-titulo': { pt: 'Da paixão pelo café à excelência na experiência: a história da Loretto.', en: 'From passion for coffee to excellence in experience: the Loretto story.' },
-      'sobre-p1':     { pt: 'Fundada em abril de 2010 na cidade de Espírito Santo do Pinhal, estado de São Paulo, a Loretto Café nasceu da paixão pelo café e do desejo de oferecer aos clientes uma experiência única e inesquecível. Localizado em um município com longa tradição na produção e recebimento de café, o Loretto Café se tornou rapidamente um ponto de referência para os amantes da bebida.', en: 'Founded in April 2010 in Espírito Santo do Pinhal, São Paulo, Loretto Café was born from a passion for coffee and the desire to offer customers a unique and unforgettable experience. Located in a region with a long tradition of coffee production, Loretto Café quickly became a reference point for coffee lovers.' },
-      'sobre-p2':     { pt: 'Com um foco em qualidade, a Loretto Café seleciona cuidadosamente os melhores grãos de café e trabalha com torra artesanal para garantir que cada xícara seja perfeita. Além disso, a cafeteria oferece uma variedade de produtos deliciosos, desde pães e bolos caseiros até opções salgadas.', en: 'With a focus on quality, Loretto Café carefully selects the finest coffee beans and uses artisan roasting to ensure every cup is perfect. The café also offers a variety of delicious products, from homemade breads and cakes to savory options.' },
-      'sobre-p3':     { pt: 'Ao longo dos anos, o Loretto Café cresceu e expandiu seus negócios, tornando-se uma das cafeterias mais reconhecidas da região. A dedicação à qualidade, a paixão pelo café e o compromisso com a satisfação do cliente são os pilares que sustentam o sucesso do Loretto Café até hoje.', en: 'Over the years, Loretto Café has grown to become one of the most recognized coffee shops in the region. Dedication to quality, passion for coffee, and commitment to customer satisfaction are the pillars that sustain its success to this day.' },
-      'sobre-btn':    { pt: 'Desfrute de nossos produtos', en: 'Enjoy our products' },
-
-      /* ── Pet Friendly ── */
-      'pet-label':  { pt: 'Bem-vindos, peludinhos!', en: 'Welcome, furry friends!' },
-      'pet-titulo': { pt: 'Café Loretto Pet Friendly', en: 'Loretto Café Pet Friendly' },
-      'pet-p1':     { pt: 'Tem muitos lugares que vamos e que os nossos peludinhos não podem entrar, e isso é muito chato, não é mesmo? Agora imagine um lugar onde você pode curtir momentos de lazer ou de trabalho, sem ter que deixar de lado o seu UAUmigo.', en: 'There are many places where our furry friends can\'t come in, and that\'s a bummer, right? Now imagine a place where you can enjoy leisure or work moments without leaving your best buddy behind.' },
-      'pet-p2':     { pt: 'Curta momentos de lazer e descontração tomando um cafezinho e saboreando as delícias da Loretto Cafeteria, sem precisar deixar de fora seu melhor amigo, pois aqui seu peludo pode ficar bem juntinho, se socializando e se divertindo em um ambiente pet friendly.', en: 'Enjoy relaxing moments with a great coffee at Loretto Cafeteria, without leaving your best friend outside. Here your pet can stay right by your side, socializing and having fun in a pet-friendly environment.' },
-
-      /* ── Espaços ── */
-      'espacos-label':  { pt: 'Reserve seu momento',                         en: 'Reserve your moment'                    },
-      'espacos-titulo': { pt: 'Conheça nossas opções de espaços para Eventos', en: 'Discover our Event Spaces'              },
-      'evt1-titulo':    { pt: 'Batizados',          en: 'Christenings'     },
-      'evt1-desc':      { pt: 'Nosso espaço para batizados é o cenário perfeito para registrar momentos incríveis e eternizar essa data tão especial em família.', en: 'Our christening space is the perfect setting to capture incredible moments and immortalize this special family day.' },
-      'evt2-titulo':    { pt: 'Reuniões',           en: 'Meetings'         },
-      'evt2-desc':      { pt: 'Conheça nosso espaço exclusivo para reuniões, perfeito para uma conversa produtiva em um ambiente tranquilo e confortável com um café Gourmet.', en: 'Discover our exclusive meeting space, perfect for productive conversations in a calm and comfortable environment with Gourmet coffee.' },
-      'evt3-titulo':    { pt: 'Confraternizações',  en: 'Get-togethers'    },
-      'evt3-desc':      { pt: 'Datas especiais é na Loretto Café. Oferecemos um espaço charmoso e acolhedor para celebrar momentos importantes ao lado de pessoas queridas.', en: 'Special dates are best at Loretto Café. We offer a charming and welcoming space to celebrate important moments with loved ones.' },
-      'evt4-titulo':    { pt: 'Corporativo',        en: 'Corporate'        },
-      'evt4-desc':      { pt: 'Com uma atmosfera agradável e tranquila, o nosso espaço é ideal para reuniões de negócios, apresentações e eventos corporativos.', en: 'With a pleasant and calm atmosphere, our space is ideal for business meetings, presentations and corporate events.' },
-
-      /* ── Agendamento ── */
-      'booking-label':  { pt: 'Fale conosco',  en: 'Get in touch' },
-      'booking-titulo': { pt: 'Faça sua reserva e desfrute de nossos ambientes e serviços!', en: 'Book your spot and enjoy our spaces and services!' },
-      'booking-desc':   { pt: 'Entre em contato conosco e obtenha mais detalhes de como tornar seu evento familiar ou corporativo um momento inesquecível.', en: 'Contact us and get more details on how to make your family or corporate event truly unforgettable.' },
-      'label-nome':     { pt: 'Nome completo',   en: 'Full name'    },
-      'label-email':    { pt: 'E-mail',          en: 'Email'        },
-      'label-telefone': { pt: 'Telefone',        en: 'Phone'        },
-      'label-evento':   { pt: 'Tipo de Evento',  en: 'Event Type'   },
-      'label-horas':    { pt: 'Quantidade de Horas:', en: 'Number of Hours:' },
-      'btn-agendar':    { pt: 'Pedir Agendamento', en: 'Request Booking' },
-
-      /* ── Galeria ── */
-      'galeria-label': { pt: 'Nossa galeria',    en: 'Our gallery'         },
-      'sec-galeria':   { pt: 'Momentos Loretto', en: 'Loretto Moments'     },
-
-      /* ── Depoimentos ── */
-      'reviews-label': { pt: 'Google Avaliações · 4,5 ★', en: 'Google Reviews · 4.5 ★' },
-      'sec-reviews':   { pt: 'O que estão dizendo sobre nós', en: 'What people are saying about us' },
-      'rev1-texto': { pt: '"Melhor café gourmet da cidade. Ótimo atendimento e conhecimento na bebida. Recomendo provar o Bourbon Amarelo! Muito top!"', en: '"Best gourmet coffee in town. Great service and excellent knowledge of the drink. I recommend trying the Bourbon Amarelo! Top notch!"' },
-      'rev1-data':  { pt: '8 de março de 2023',    en: 'March 8, 2023'    },
-      'rev2-texto': { pt: '"Ótimo atendimento, degustação excelente, cafés selecionados, safra de alta qualidade, grãos, expresso, moído, ambiente limpo e agradável. Nota 1000."', en: '"Great service, excellent tasting, selected coffees, high quality harvest, beans, espresso, ground, clean and pleasant environment. 10 out of 10."' },
-      'rev2-data':  { pt: '23 de janeiro de 2023', en: 'January 23, 2023' },
-      'rev3-texto': { pt: '"Próximo ao centro, local agradável e confortável. Bom atendimento, cardápio razoável."', en: '"Close to the city center, pleasant and comfortable place. Good service, decent menu."' },
-      'rev3-data':  { pt: '23 de abril de 2023',   en: 'April 23, 2023'   },
-      'rev4-texto': { pt: '"Excelente!"',           en: '"Excellent!"'      },
-      'rev4-data':  { pt: '22 de janeiro de 2023', en: 'January 22, 2023' },
-      'rev5-texto': { pt: '"Amei, porém faltou só palito 😄. Mas o lugar é top rsrs."', en: '"Loved it, just needed a toothpick 😄. But the place is great lol."' },
-      'rev5-data':  { pt: '2 de março de 2023',    en: 'March 2, 2023'    },
-      'rev6-texto': { pt: '"Um lugar gostoso. Servem um bom panino. O ambiente tem espaço para crianças. Recomendo para famílias."', en: '"A cozy place. They serve a good panino. The environment has a space for kids. I recommend it for families."' },
-      'rev6-data':  { pt: '29 de janeiro de 2023', en: 'January 29, 2023' },
-
-      /* ── Footer ── */
-      'footer-tagline':  { pt: 'A Santa Casa do Café',                 en: 'The Holy House of Coffee'     },
-      'footer-endereco': { pt: 'Espírito Santo do Pinhal — São Paulo, Brasil', en: 'Espírito Santo do Pinhal — São Paulo, Brazil' },
-      'fnav-servicos':   { pt: 'Serviços',  en: 'Services'  },
-      'fnav-sobre':      { pt: 'Sobre',     en: 'About'     },
-      'fnav-espacos':    { pt: 'Espaços',   en: 'Spaces'    },
-      'fnav-reservas':   { pt: 'Reservas',  en: 'Bookings'  },
-      'footer-copy':     { pt: 'Todos os direitos reservados.', en: 'All rights reserved.' },
+      'nav-servicos':{ pt:'Serviços', en:'Services' }, 'nav-sobre':{ pt:'Sobre', en:'About' }, 'nav-espacos':{ pt:'Espaços', en:'Spaces' }, 'nav-reservas':{ pt:'Reservas', en:'Bookings' }, 'nav-avaliacoes':{ pt:'Avaliações', en:'Reviews' },
+      'hero-subtitulo':{ pt:'A Santa Casa do Café', en:'The Holy House of Coffee' }, 'hero-desc':{ pt:'Leve a experiência de nossa cafeteria para a sua casa — com apenas um clique, você pode saborear nossos produtos no conforto do seu lar.', en:'Bring the coffee shop experience home — with just one click, enjoy our products in the comfort of your place.' }, 'hero-btn1':{ pt:'Desfrute de nossos produtos', en:'Enjoy our products' }, 'hero-btn2':{ pt:'Fazer reserva', en:'Book a table' },
+      'sec-servicos':{ pt:'Desfrute de nossos produtos', en:'Enjoy our products' }, 'svc1-titulo':{ pt:'Locação de Máquinas', en:'Machine Rental' }, 'svc1-desc':{ pt:'Desfrute de um café excepcional com nossas máquinas de café espresso de alta qualidade.', en:'Enjoy exceptional coffee with our high-quality espresso machines.' }, 'svc2-titulo':{ pt:'Torrefação Personalizada', en:'Custom Roasting' }, 'svc2-desc':{ pt:'Aprenda os segredos da torrefação de café com nossos especialistas — torre seu próprio café conosco.', en:'Learn coffee roasting secrets with our experts — roast your own coffee with us.' }, 'svc3-titulo':{ pt:'Espaço para Eventos', en:'Event Space' }, 'svc3-desc':{ pt:'Nosso espaço para eventos é perfeito para reuniões, comemorações e muito mais.', en:'Our event space is perfect for meetings, celebrations and much more.' }, 'svc4-titulo':{ pt:'Pedidos via iFood', en:'Orders via iFood' }, 'svc4-desc':{ pt:'Nosso delivery rápido e confiável garante que você aproveite nossos produtos no conforto do seu lar.', en:'Our fast and reliable delivery ensures you enjoy our products at home.' },
+      'sobre-label':{ pt:'Nossa história', en:'Our story' }, 'sobre-titulo':{ pt:'Da paixão pelo café à excelência na experiência: a história da Loretto.', en:'From passion for coffee to excellence in experience: the Loretto story.' }, 'sobre-p1':{ pt:'Fundada em abril de 2010 na cidade de Espírito Santo do Pinhal, estado de São Paulo, a Loretto Café nasceu da paixão pelo café e do desejo de oferecer aos clientes uma experiência única e inesquecível. Localizado em um município com longa tradição na produção e recebimento de café, o Loretto Café se tornou rapidamente um ponto de referência para os amantes da bebida.', en:'Founded in April 2010 in Espírito Santo do Pinhal, São Paulo, Loretto Café was born from a passion for coffee and the desire to offer customers a unique and unforgettable experience. Located in a region with a long tradition of coffee production, Loretto Café quickly became a reference point for coffee lovers.' }, 'sobre-p2':{ pt:'Com um foco em qualidade, a Loretto Café seleciona cuidadosamente os melhores grãos de café e trabalha com torra artesanal para garantir que cada xícara seja perfeita. Além disso, a cafeteria oferece uma variedade de produtos deliciosos, desde pães e bolos caseiros até opções salgadas.', en:'With a focus on quality, Loretto Café carefully selects the finest coffee beans and uses artisan roasting to ensure every cup is perfect. The café also offers a variety of delicious products, from homemade breads and cakes to savory options.' }, 'sobre-p3':{ pt:'Ao longo dos anos, o Loretto Café cresceu e expandiu seus negócios, tornando-se uma das cafeterias mais reconhecidas da região. A dedicação à qualidade, a paixão pelo café e o compromisso com a satisfação do cliente são os pilares que sustentam o sucesso do Loretto Café até hoje.', en:'Over the years, Loretto Café has grown to become one of the most recognized coffee shops in the region. Dedication to quality, passion for coffee, and commitment to customer satisfaction are the pillars that sustain its success to this day.' }, 'sobre-btn':{ pt:'Desfrute de nossos produtos', en:'Enjoy our products' },
+      'pet-label':{ pt:'Bem-vindos, peludinhos!', en:'Welcome, furry friends!' }, 'pet-titulo':{ pt:'Café Loretto Pet Friendly', en:'Loretto Café Pet Friendly' }, 'pet-p1':{ pt:'Tem muitos lugares que vamos e que os nossos peludinhos não podem entrar, e isso é muito chato, não é mesmo? Agora imagine um lugar onde você pode curtir momentos de lazer ou de trabalho, sem ter que deixar de lado o seu UAUmigo.', en:"There are many places where our furry friends can't come in, and that's a bummer, right? Now imagine a place where you can enjoy leisure or work moments without leaving your best buddy behind." }, 'pet-p2':{ pt:'Curta momentos de lazer e descontração tomando um cafezinho e saboreando as delícias da Loretto Cafeteria, sem precisar deixar de fora seu melhor amigo, pois aqui seu peludo pode ficar bem juntinho, se socializando e se divertindo em um ambiente pet friendly.', en:'Enjoy relaxing moments with a great coffee at Loretto Cafeteria, without leaving your best friend outside. Here your pet can stay right by your side, socializing and having fun in a pet-friendly environment.' },
+      'espacos-label':{ pt:'Reserve seu momento', en:'Reserve your moment' }, 'espacos-titulo':{ pt:'Conheça nossas opções de espaços para Eventos', en:'Discover our Event Spaces' }, 'evt1-titulo':{ pt:'Batizados', en:'Christenings' }, 'evt1-desc':{ pt:'Nosso espaço para batizados é o cenário perfeito para registrar momentos incríveis e eternizar essa data tão especial em família.', en:'Our christening space is the perfect setting to capture incredible moments and immortalize this special family day.' }, 'evt2-titulo':{ pt:'Reuniões', en:'Meetings' }, 'evt2-desc':{ pt:'Conheça nosso espaço exclusivo para reuniões, perfeito para uma conversa produtiva em um ambiente tranquilo e confortável com um café Gourmet.', en:'Discover our exclusive meeting space, perfect for productive conversations in a calm and comfortable environment with Gourmet coffee.' }, 'evt3-titulo':{ pt:'Confraternizações', en:'Get-togethers' }, 'evt3-desc':{ pt:'Datas especiais é na Loretto Café. Oferecemos um espaço charmoso e acolhedor para celebrar momentos importantes ao lado de pessoas queridas.', en:'Special dates are best at Loretto Café. We offer a charming and welcoming space to celebrate important moments with loved ones.' }, 'evt4-titulo':{ pt:'Corporativo', en:'Corporate' }, 'evt4-desc':{ pt:'Com uma atmosfera agradável e tranquila, o nosso espaço é ideal para reuniões de negócios, apresentações e eventos corporativos.', en:'With a pleasant and calm atmosphere, our space is ideal for business meetings, presentations and corporate events.' },
+      'booking-label':{ pt:'Fale conosco', en:'Get in touch' }, 'booking-titulo':{ pt:'Faça sua reserva e desfrute de nossos ambientes e serviços!', en:'Book your spot and enjoy our spaces and services!' }, 'booking-desc':{ pt:'Entre em contato conosco e obtenha mais detalhes de como tornar seu evento familiar ou corporativo um momento inesquecível.', en:'Contact us and get more details on how to make your family or corporate event truly unforgettable.' }, 'label-nome':{ pt:'Nome completo', en:'Full name' }, 'label-email':{ pt:'E-mail', en:'Email' }, 'label-telefone':{ pt:'Telefone', en:'Phone' }, 'label-evento':{ pt:'Tipo de Evento', en:'Event Type' }, 'label-horas':{ pt:'Quantidade de Horas:', en:'Number of Hours:' }, 'btn-agendar':{ pt:'Pedir Agendamento', en:'Request Booking' },
+      'galeria-label':{ pt:'Nossa galeria', en:'Our gallery' }, 'sec-galeria':{ pt:'Momentos Loretto', en:'Loretto Moments' },
+      'reviews-label':{ pt:'Google Avaliações · 4,5 ★', en:'Google Reviews · 4.5 ★' }, 'sec-reviews':{ pt:'O que estão dizendo sobre nós', en:'What people are saying about us' },
+      'rev1-texto':{ pt:'"Melhor café gourmet da cidade. Ótimo atendimento e conhecimento na bebida. Recomendo provar o Bourbon Amarelo! Muito top!"', en:'"Best gourmet coffee in town. Great service and excellent knowledge of the drink. I recommend trying the Bourbon Amarelo! Top notch!"' }, 'rev1-data':{ pt:'8 de março de 2023', en:'March 8, 2023' },
+      'rev2-texto':{ pt:'"Ótimo atendimento, degustação excelente, cafés selecionados, safra de alta qualidade, grãos, expresso, moído, ambiente limpo e agradável. Nota 1000."', en:'"Great service, excellent tasting, selected coffees, high quality harvest, beans, espresso, ground, clean and pleasant environment. 10 out of 10."' }, 'rev2-data':{ pt:'23 de janeiro de 2023', en:'January 23, 2023' },
+      'rev3-texto':{ pt:'"Próximo ao centro, local agradável e confortável. Bom atendimento, cardápio razoável."', en:'"Close to the city center, pleasant and comfortable place. Good service, decent menu."' }, 'rev3-data':{ pt:'23 de abril de 2023', en:'April 23, 2023' },
+      'rev4-texto':{ pt:'"Excelente!"', en:'"Excellent!"' }, 'rev4-data':{ pt:'22 de janeiro de 2023', en:'January 22, 2023' },
+      'rev5-texto':{ pt:'"Amei, porém faltou só palito 😄. Mas o lugar é top rsrs."', en:'"Loved it, just needed a toothpick 😄. But the place is great lol."' }, 'rev5-data':{ pt:'2 de março de 2023', en:'March 2, 2023' },
+      'rev6-texto':{ pt:'"Um lugar gostoso. Servem um bom panino. O ambiente tem espaço para crianças. Recomendo para famílias."', en:'"A cozy place. They serve a good panino. The environment has a space for kids. I recommend it for families."' }, 'rev6-data':{ pt:'29 de janeiro de 2023', en:'January 29, 2023' },
+      'footer-tagline':{ pt:'A Santa Casa do Café', en:'The Holy House of Coffee' }, 'footer-endereco':{ pt:'Espírito Santo do Pinhal — São Paulo, Brasil', en:'Espírito Santo do Pinhal — São Paulo, Brazil' }, 'fnav-servicos':{ pt:'Serviços', en:'Services' }, 'fnav-sobre':{ pt:'Sobre', en:'About' }, 'fnav-espacos':{ pt:'Espaços', en:'Spaces' }, 'fnav-reservas':{ pt:'Reservas', en:'Bookings' }, 'footer-copy':{ pt:'Todos os direitos reservados.', en:'All rights reserved.' },
     };
-
     let idiomaAtual = localStorage.getItem('loretto-idioma') || 'pt';
-
     function toggleIdioma() {
       idiomaAtual = idiomaAtual === 'pt' ? 'en' : 'pt';
       aplicarIdioma(idiomaAtual);
       localStorage.setItem('loretto-idioma', idiomaAtual);
-
-      const btn = document.getElementById('btn-idioma-texto');
-      btn.textContent = idiomaAtual === 'pt' ? 'Português / EN' : 'English / PT';
-      document.getElementById('btn-idioma').setAttribute('aria-label',
-        idiomaAtual === 'pt' ? 'Mudar idioma para inglês' : 'Mudar idioma para português'
-      );
-
+      document.getElementById('btn-idioma-texto').textContent = idiomaAtual === 'pt' ? 'Português / EN' : 'English / PT';
+      document.getElementById('btn-idioma').setAttribute('aria-label', idiomaAtual === 'pt' ? 'Mudar idioma para inglês' : 'Mudar idioma para português');
       document.documentElement.lang = idiomaAtual === 'pt' ? 'pt-BR' : 'en';
       anunciar(idiomaAtual === 'pt' ? 'Idioma alterado para Português' : 'Language changed to English');
     }
+    function aplicarIdioma(lang) { Object.entries(traducoes).forEach(([id, textos]) => { const el = document.getElementById(id); if (el) el.textContent = textos[lang]; }); }
+    function anunciar(msg) { const r = document.getElementById('a11y-anuncio'); r.textContent = ''; setTimeout(() => r.textContent = msg, 50); }
 
-    function aplicarIdioma(lang) {
-      Object.entries(traducoes).forEach(([id, textos]) => {
-        const el = document.getElementById(id);
-        if (el) el.textContent = textos[lang];
-      });
-    }
-
-    /* ── Região aria-live para anúncios ────────────────────── */
-    function anunciar(msg) {
-      const r = document.getElementById('a11y-anuncio');
-      r.textContent = '';
-      setTimeout(() => r.textContent = msg, 50);
-    }
-
-    /* ── Restaurar preferências salvas ─────────────────────── */
+    /* ═══════════ RESTAURAR PREFERÊNCIAS ═══════════ */
     (function restaurar() {
-      if (localStorage.getItem('loretto-contraste') === '1') {
-        document.body.classList.add('high-contrast');
-        document.getElementById('btn-contraste').setAttribute('aria-pressed', 'true');
-      }
-      if (localStorage.getItem('loretto-fonte')) {
-        fonteBase = parseFloat(localStorage.getItem('loretto-fonte'));
-        aplicarFonte(fonteBase);
-      }
-      if (localStorage.getItem('loretto-idioma') === 'en') {
-        idiomaAtual = 'en';
-        aplicarIdioma('en');
-        document.getElementById('btn-idioma-texto').textContent = 'English / PT';
-        document.documentElement.lang = 'en';
-      }
+      if (localStorage.getItem('loretto-contraste') === '1') { document.body.classList.add('high-contrast'); document.getElementById('btn-contraste').setAttribute('aria-pressed', 'true'); }
+      if (localStorage.getItem('loretto-fonte')) { fonteBase = parseFloat(localStorage.getItem('loretto-fonte')); aplicarFonte(fonteBase); }
+      if (localStorage.getItem('loretto-idioma') === 'en') { idiomaAtual = 'en'; aplicarIdioma('en'); document.getElementById('btn-idioma-texto').textContent = 'English / PT'; document.documentElement.lang = 'en'; }
     })();
 
-    /* ── Formulário com validação acessível ────────────────── */
-    /*
-      ✅ MISSÃO 3 — Validação com mensagens de erro associadas via
-      aria-describedby e aria-live, acessíveis para leitores de tela.
-      Os campos também têm required + type correto para validação HTML5.
-    */
+    /* ═══════════ VALIDAÇÃO + SWEETALERT2 ═══════════ */
     const mensagensErro = {
       nome:     { pt: 'Por favor, informe seu nome completo (mínimo 3 caracteres).', en: 'Please enter your full name (at least 3 characters).' },
       email:    { pt: 'Por favor, informe um e-mail válido.',                        en: 'Please enter a valid email address.'                    },
       telefone: { pt: 'Por favor, informe um telefone válido.',                      en: 'Please enter a valid phone number.'                     },
     };
-
     function validarCampo(id) {
-      const input = document.getElementById(id);
-      const erro  = document.getElementById(id + '-erro');
+      const input = document.getElementById(id); const erro = document.getElementById(id + '-erro');
       if (!input || !erro) return true;
-
-      if (!input.validity.valid) {
-        erro.textContent = mensagensErro[id][idiomaAtual];
-        input.classList.add('invalido');
-        input.setAttribute('aria-invalid', 'true');
-        return false;
-      }
-      erro.textContent = '';
-      input.classList.remove('invalido');
-      input.setAttribute('aria-invalid', 'false');
-      return true;
+      if (!input.validity.valid) { erro.textContent = mensagensErro[id][idiomaAtual]; input.classList.add('invalido'); input.setAttribute('aria-invalid', 'true'); return false; }
+      erro.textContent = ''; input.classList.remove('invalido'); input.setAttribute('aria-invalid', 'false'); return true;
     }
-
     function handleSubmit(event) {
       event.preventDefault();
-
-      // Valida todos os campos obrigatórios
-      const nomeOk     = validarCampo('nome');
-      const emailOk    = validarCampo('email');
-      const telefoneOk = validarCampo('telefone');
-
-      if (!nomeOk || !emailOk || !telefoneOk) {
-        // Foca o primeiro campo inválido
-        const primeiro = document.querySelector('.invalido');
-        if (primeiro) primeiro.focus();
-        return;
-      }
-
+      const nomeOk = validarCampo('nome'); const emailOk = validarCampo('email'); const telefoneOk = validarCampo('telefone');
+      if (!nomeOk || !emailOk || !telefoneOk) { const primeiro = document.querySelector('.invalido'); if (primeiro) primeiro.focus(); return; }
       const status = document.getElementById('form-status');
-      const form   = document.getElementById('reserva-form');
-
-      // Tradução do SweetAlert2
-      const swalTitle = idiomaAtual === 'en' ? 'Success!' : 'Sucesso!';
-      const swalMsg = idiomaAtual === 'en'
-        ? 'Booking sent! We will contact you soon.'
-        : 'Agendamento enviado com sucesso! Em breve entraremos em contato.';
-      const swalBtnText = idiomaAtual === 'en' ? 'Great' : 'Excelente';
-
-      // Anuncia para leitores de tela de forma discreta via aria-live
-      status.textContent = swalMsg;
-
-      // ✅ Dispara o modal do SweetAlert2
+      const form = document.getElementById('reserva-form');
+      /*
+        ✅ FRAMEWORK: SweetAlert2 — Modal acessível de confirmação.
+        Substitui alertas nativos do navegador por um modal estilizado
+        com as cores do Loretto Café, acessível por teclado (Escape fecha).
+        O título e texto traduzem automaticamente conforme o idioma.
+      */
       Swal.fire({
-        title: swalTitle,
-        text: swalMsg,
         icon: 'success',
-        iconColor: '#f2b138', // Dourado Loretto
-        background: '#1a1008', // Escuro Loretto
-        color: '#e8d5b0', // Texto Loretto
-        confirmButtonColor: '#f2b138', // Botão Dourado Loretto
-        confirmButtonText: `<span style="color:#1a1008; font-weight:bold;">${swalBtnText}</span>`
-      }).then(() => {
-        // Reseta o formulário apenas após confirmar o alerta
-        form.reset();
-        document.getElementById('horas-valor').textContent = '1';
-        status.textContent = '';
-        // Limpa erros
-        ['nome', 'email', 'telefone'].forEach(id => {
-          const erro = document.getElementById(id + '-erro');
-          if (erro) erro.textContent = '';
-          const input = document.getElementById(id);
-          if (input) { input.classList.remove('invalido'); input.removeAttribute('aria-invalid'); }
-        });
+        title: idiomaAtual === 'en' ? 'Booking sent!' : 'Agendamento enviado!',
+        text: idiomaAtual === 'en' ? 'We will contact you soon to confirm your event.' : 'Em breve entraremos em contato para confirmar seu evento.',
+        confirmButtonText: 'OK',
+        confirmButtonColor: '#f2b138',
+        background: '#2b1c0a',
+        color: '#e8d5b0',
+        iconColor: '#4caf50',
       });
+      status.textContent = idiomaAtual === 'en' ? 'Booking sent successfully.' : 'Agendamento enviado com sucesso.';
+      form.reset();
+      document.getElementById('horas-valor').textContent = '1';
+      ['nome', 'email', 'telefone'].forEach(id => { const erro = document.getElementById(id + '-erro'); if (erro) erro.textContent = ''; const input = document.getElementById(id); if (input) { input.classList.remove('invalido'); input.removeAttribute('aria-invalid'); } });
+      setTimeout(() => { status.textContent = ''; }, 5000);
     }
+  </script>
+
+  <!-- ✅ FRAMEWORK: AOS — Animate On Scroll (JavaScript) -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+  <!-- ✅ FRAMEWORK: SweetAlert2 — Modais acessíveis (JavaScript) -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+
+  <script>
+    /*
+      ✅ FRAMEWORK: AOS — Inicialização
+      Configura as animações de scroll com duração de 800ms,
+      executa apenas uma vez (once: true) para não distrair,
+      e dispara 80px antes do elemento entrar na tela.
+    */
+    AOS.init({
+      duration: 800,
+      once: true,
+      easing: 'ease-out',
+      offset: 80
+    });
   </script>
 
 </body>
