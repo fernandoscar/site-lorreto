@@ -184,11 +184,11 @@ Testado no **iPhone** via **fernandoscar.github.io** (GitHub Pages), confirmando
 
 | Hero (mobile) | Seção Sobre (mobile) |
 |---|---|
-| Layout responsivo com logo, hero image e botões de ação | Texto fluindo corretamente em coluna única |
+| ![Hero mobile](assets/mobile-hero.PNG) | ![Sobre mobile](assets/mobile-sobre.png) |
 
 ---
 
-
+## 🛠️ Tecnologias Utilizadas
 
 - **HTML5** — estrutura semântica
 - **CSS3** — variáveis CSS, Grid, Flexbox, animações, `clamp()` para tipografia responsiva
